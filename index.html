@@ -1,102 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến chưng hạt sen</title>
+  <title>Yến chưng - Slide sản phẩm</title>
   <style>
-    body { font-family: 'Segoe UI'; background: #fffbe9; margin: 0; padding: 0; }
-    header { background: #fff3da; padding: 30px; text-align: center; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fffbe9; color: #003c5c; }
+    header { text-align: center; padding: 20px; background: #fff3da; }
     h1 { color: #ff8000; }
-    .container { padding: 20px; max-width: 600px; margin: auto; }
-    .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
-    .card img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; }
-    select, .btn { padding: 10px; margin: 8px 0; width: 100%; max-width: 300px; }
-    .btn { background: #ff8000; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+    .slider-container { overflow-x: auto; white-space: nowrap; padding: 20px; scroll-snap-type: x mandatory; }
+    .card { display: inline-block; background: #fff; margin-right: 16px; border-radius: 12px; padding: 16px; width: 260px;
+            scroll-snap-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); vertical-align: top; }
+    .card img { width: 100%; border-radius: 10px; }
+    select, .btn { width: 100%; padding: 10px; margin: 10px 0; }
+    .btn { background: #ff8000; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
     .btn:hover { background: #e36e00; }
-    #cart { margin-top: 30px; background: #fff4d1; padding: 20px; border-radius: 12px; }
-    .total { font-weight: bold; color: #c0392b; margin-top: 10px; }
+    #cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fffbdd; padding: 12px; text-align: center;
+                box-shadow: 0 -2px 8px rgba(0,0,0,0.1); z-index: 999; display: none; }
+    #cart-bar button { padding: 12px 24px; background: #ff8000; color: #fff; border: none; border-radius: 6px; font-weight: bold; }
+    @media (max-width: 768px) {
+      #cart-bar { display: block; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>YẾN CHƯNG HẠT SEN</h1>
+  <h1>YẾN CHƯNG MÙA HÈ</h1>
 </header>
 
-<div class="container">
+<div class="slider-container">
+
   <div class="card">
     <img src="yenchung-real.png" alt="Yến chưng hạt sen">
-    <p><strong>Dung tích:</strong></p>
-    <select id="size">
+    <h3>Yến chưng hạt sen</h3>
+    <select id="size0">
       <option value="49">75ml – 49.000đ</option>
       <option value="59" selected>100ml – 59.000đ</option>
       <option value="69">150ml – 69.000đ</option>
     </select>
-
-    <p><strong>Vị ngọt:</strong></p>
-    <select id="sweet">
+    <select id="sweet0">
       <option>Không đường</option>
       <option selected>Ít ngọt</option>
       <option>Vừa ngọt</option>
     </select>
-
-    <button class="btn" onclick="addToCart()">➕ Thêm vào giỏ hàng</button>
+    <button class="btn" onclick="addToCart('Yến chưng hạt sen', 'size0', 'sweet0')">Thêm vào giỏ</button>
   </div>
 
-  <div id="cart">
-    <h2>🛒 Giỏ hàng</h2>
-    <div id="cart-items"></div>
-    <div class="total" id="cart-total">Tổng: 0đ</div>
-    <button class="btn" onclick="sendOrder()">📩 Gửi đơn qua Zalo</button>
+
+  <div class="card">
+    <img src="https://i.imgur.com/dEuK6ZX.png" alt="Yến Táo Dứa">
+    <h3>Yến Táo Dứa</h3>
+    <select id="size1">
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
+    </select>
+    <select id="sweet1">
+      <option>Không đường</option>
+      <option selected>Ít ngọt</option>
+      <option>Vừa ngọt</option>
+    </select>
+    <button class="btn" onclick="addToCart('Yến Táo Dứa', 'size1', 'sweet1')">Thêm vào giỏ</button>
   </div>
+
+
+  <div class="card">
+    <img src="https://i.imgur.com/5Wf3XcI.png" alt="Yến Dừa Non">
+    <h3>Yến Dừa Non</h3>
+    <select id="size2">
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
+    </select>
+    <select id="sweet2">
+      <option>Không đường</option>
+      <option selected>Ít ngọt</option>
+      <option>Vừa ngọt</option>
+    </select>
+    <button class="btn" onclick="addToCart('Yến Dừa Non', 'size2', 'sweet2')">Thêm vào giỏ</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://i.imgur.com/fHyv9Xp.png" alt="Yến Cam Mật">
+    <h3>Yến Cam Mật</h3>
+    <select id="size3">
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
+    </select>
+    <select id="sweet3">
+      <option>Không đường</option>
+      <option selected>Ít ngọt</option>
+      <option>Vừa ngọt</option>
+    </select>
+    <button class="btn" onclick="addToCart('Yến Cam Mật', 'size3', 'sweet3')">Thêm vào giỏ</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://i.imgur.com/UMCGJS1.png" alt="Yến Lá Dứa">
+    <h3>Yến Lá Dứa</h3>
+    <select id="size4">
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
+    </select>
+    <select id="sweet4">
+      <option>Không đường</option>
+      <option selected>Ít ngọt</option>
+      <option>Vừa ngọt</option>
+    </select>
+    <button class="btn" onclick="addToCart('Yến Lá Dứa', 'size4', 'sweet4')">Thêm vào giỏ</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://i.imgur.com/bPP14Wh.png" alt="Yến Vải Tươi">
+    <h3>Yến Vải Tươi</h3>
+    <select id="size5">
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
+    </select>
+    <select id="sweet5">
+      <option>Không đường</option>
+      <option selected>Ít ngọt</option>
+      <option>Vừa ngọt</option>
+    </select>
+    <button class="btn" onclick="addToCart('Yến Vải Tươi', 'size5', 'sweet5')">Thêm vào giỏ</button>
+  </div>
+
+</div>
+
+<div id="cart-bar">
+  <button onclick="goToZalo()">📩 Mua ngay qua Zalo</button>
 </div>
 
 <script>
 let cart = [];
 
-function addToCart() {
-  const sizeEl = document.getElementById("size");
-  const sweetEl = document.getElementById("sweet");
+function addToCart(product, sizeId, sweetId) {
+  const size = document.getElementById(sizeId);
+  const sweet = document.getElementById(sweetId);
+  const price = parseInt(size.value);
+  const label = size.options[size.selectedIndex].text;
 
-  const sizeText = sizeEl.options[sizeEl.selectedIndex].text;
-  const price = parseInt(sizeEl.value);
-  const sweet = sweetEl.value;
-
-  cart.push({ size: sizeText, sweet: sweet, price: price });
-  renderCart();
+  cart.push({ product, size: label, sweet: sweet.value, price });
+  alert(`${product} đã thêm vào giỏ hàng.`);
 }
 
-function renderCart() {
-  const cartItems = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-  cartItems.innerHTML = "";
-
-  let total = 0;
-  cart.forEach((item, idx) => {
-    cartItems.innerHTML += `<p>${idx + 1}. Yến chưng - ${item.size} - ${item.sweet} : ${item.price}.000đ</p>`;
-    total += item.price;
-  });
-
-  cartTotal.innerText = `Tổng: ${total}.000đ`;
-}
-
-function sendOrder() {
+function goToZalo() {
   if (cart.length === 0) {
-    alert("Bạn chưa thêm sản phẩm nào!");
+    alert("Bạn chưa thêm sản phẩm nào.");
     return;
   }
-
-  let message = "Xin chào, tôi muốn đặt:\n";
+  let msg = "Xin chào, tôi muốn đặt:
+";
   let total = 0;
-  cart.forEach((item, idx) => {
-    message += `${idx + 1}. Yến chưng - ${item.size} - ${item.sweet} : ${item.price}.000đ\n`;
+  cart.forEach((item, i) => {
+    msg += `${i + 1}. ${item.product} – ${item.size} – ${item.sweet}: ${item.price}.000đ
+`;
     total += item.price;
   });
-
-  message += `Tổng cộng: ${total}.000đ`;
-
-  const link = "https://zalo.me/0942244994?text=" + encodeURIComponent(message);
+  msg += `Tổng cộng: ${total}.000đ`;
+  const link = "https://zalo.me/0942244994?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 }
 </script>
