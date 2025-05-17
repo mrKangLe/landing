@@ -4,144 +4,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bộ Sưu Tập Yến Chưng Mùa Hè</title>
+  <title>Yến chưng - 10 sản phẩm</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fefbe9;
-      color: #003c5c;
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fffbe9; padding-bottom: 160px; }
+    header { text-align: center; background: #fff3da; padding: 30px; }
+    h1 { color: #ff8000; margin: 0; }
+
+    .container { max-width: 1280px; margin: auto; padding: 20px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
     }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: #fff9e5;
-      color: #003c5c;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: #ff8000;
-    }
-    h2 {
-      margin-top: 0;
-    }
-    .products {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
+
+    .product-card {
+      background: white;
+      padding: 12px;
       border-radius: 12px;
-      width: 100%;
-      max-width: 280px;
       text-align: center;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-      padding: 15px;
-      transition: transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
+
+    .product-card img {
       width: 100%;
-      max-height: 300px;
+      border-radius: 12px;
+      max-height: 160px;
       object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
     }
+
+    h3 {
+      font-size: 16px;
+      margin: 10px 0 6px;
+      color: #d35400;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
     .btn {
+      margin-top: 10px;
       background: #ff8000;
       color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
       font-weight: bold;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #e36e00;
-    }
-    .footer {
-      text-align: center;
-      padding: 30px 10px;
-    }
-    .footer button {
-      margin: 8px;
-      padding: 10px 20px;
-      border-radius: 20px;
+      padding: 8px;
       border: none;
-      font-weight: bold;
+      border-radius: 8px;
       cursor: pointer;
-    }
-    .zalo { background: #00c186; color: #fff; }
-    .messenger { background: #0078ff; color: #fff; }
-
-    #cart-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border: 2px solid #ff8000;
-      padding: 15px;
-      border-radius: 10px;
-      display: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
       width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
     }
 
-    .popup-content {
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      position: relative;
-      animation: fadeIn 0.3s ease-in-out;
+    /* Popup cart slide-up */
+    .cart-popup {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 3px solid #ff8000;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+      padding: 16px;
+      z-index: 999;
+      transition: bottom 0.4s ease;
     }
 
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
+    .cart-popup.show { bottom: 0; }
+
+    .cart-item {
+      margin-bottom: 8px;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 4px;
+    }
+
+    .cart-total {
+      margin-top: 10px;
       font-weight: bold;
+      color: #c0392b;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: red;
+      font-size: 20px;
+      font-weight: bold;
+      float: right;
       cursor: pointer;
-      color: #999;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.95);}
-      to {opacity: 1; transform: scale(1);}
+    .order-btn {
+      background: #0078ff;
+      margin-top: 10px;
     }
 
-    @media (min-width: 600px) {
-      .row {
-        flex-direction: row;
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -149,132 +111,199 @@
 <body>
 
 <header>
-  <h2>BỘ SƯU TẬP</h2>
-  <h1>YẾN CHƯNG MÙA HÈ</h1>
-  <p>6 vị mát lành, trẻ trung – Nạp năng lượng mùa nắng</p>
+  <h1>YẾN CHƯNG - 10 SẢN PHẨM</h1>
 </header>
 
-<section class="products">
-  <div class="row">
-    <div class="card">
-      <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp" onclick="showPopup('popup-sen')">
-      <h3 onclick="showPopup('popup-sen')">Yến chưng hạt sen, táo đỏ, lá nếp</h3>
-  <label for="size-select"><strong>Chọn dung tích:</strong></label>
-  <select id="size-select" style="width: 100%; padding: 8px; margin-top: 6px; border-radius: 6px;">
-    <option value="55">75ml – 55.000đ</option>
-    <option value="85" selected>100ml – 85.000đ</option>
-    <option value="110">150ml – 110.000đ</option>
-    <option value="170">200ml – 170.000đ</option>
-  </select>
-  <p style="margin-top: 10px;"><strong>Giá:</strong> <span id="price-display">85.000đ</span></p>
-  <button class="btn" onclick="addToCart()">🛒 Thêm vào giỏ hàng</button>
+<div class="container">
+  <div class="grid">
 
-  <div id="cart" style="margin-top: 30px; background: #fff4d1; padding: 16px; border-radius: 12px;">
-    <h2>🛍️ Giỏ hàng</h2>
-    <div id="cart-items"></div>
-    <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
-    <button class="btn" onclick="sendOrder()">📩 Gửi đơn qua Zalo</button>
-  </div>
-
-  <script>
-    let cart = [];
-
-    function addToCart() {
-      const select = document.getElementById("size-select");
-      const label = select.options[select.selectedIndex].text;
-      const price = parseInt(select.value);
-      cart.push({ name: "Yến chưng hạt sen, táo đỏ, lá nếp", label, price });
-      renderCart();
-    }
-
-    function renderCart() {
-      const area = document.getElementById("cart-items");
-      const totalText = document.getElementById("cart-total");
-      area.innerHTML = "";
-      let total = 0;
-      cart.forEach((item, i) => {
-        area.innerHTML += `
-          <div class="cart-item" style="margin-bottom: 6px;">
-            ${i+1}. ${item.name} – ${item.label}: ${item.price}.000đ
-            <button onclick="removeFromCart(${i})" style="color:red; border:none; background:none; font-weight:bold;">×</button>
-          </div>`;
-        total += item.price;
-      });
-      totalText.textContent = total + ".000đ";
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      renderCart();
-    }
-
-    function sendOrder() {
-      if (cart.length === 0) return alert("Bạn chưa chọn sản phẩm nào!");
-      let msg = "Xin chào, tôi muốn đặt:
-";
-      let total = 0;
-      cart.forEach((item, i) => {
-        msg += `${i+1}. ${item.name} – ${item.label}: ${item.price}.000đ
-`;
-        total += item.price;
-      });
-      msg += `Tổng cộng: ${total}.000đ`;
-      window.open("https://zalo.me/0942244994?text=" + encodeURIComponent(msg), "_blank");
-    }
-  </script>
-
-
-  <script>
-    const sizeSelect = document.getElementById('size-select');
-    const priceDisplay = document.getElementById('price-display');
-    sizeSelect.onchange = function() {
-      priceDisplay.textContent = sizeSelect.options[sizeSelect.selectedIndex].text.split('–')[1].trim();
-    };
-  </script>
-
-      <p>100ml – 59.000đ</p>
-      <button class="btn" onclick="addToCart('Yến hạt sen, táo đỏ, lá nếp')">Mua ngay</button>
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 1">
+      <h3>Yến chưng đặc biệt 1</h3>
+      <select id="size1">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(1)">🛒 Mua ngay</button>
     </div>
-  </div>
-</section>
-
-<!-- POPUP -->
-<div id="popup-sen" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup('popup-sen')">&times;</span>
-    <h2>Yến chưng hạt sen, táo đỏ, lá nếp</h2>
-    <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá nếp, đường phèn.</p>
-    <p><strong>Lợi ích:</strong> An thần, bổ huyết, hỗ trợ giấc ngủ.</p>
-    <p><strong>Dành cho:</strong> Người hay mất ngủ, stress, phụ nữ sau sinh.</p>
-    <p><strong>Lưu ý:</strong> Không dùng cho người tiểu đường nặng.</p>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 2">
+      <h3>Yến chưng đặc biệt 2</h3>
+      <select id="size2">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(2)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 3">
+      <h3>Yến chưng đặc biệt 3</h3>
+      <select id="size3">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(3)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 4">
+      <h3>Yến chưng đặc biệt 4</h3>
+      <select id="size4">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(4)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 5">
+      <h3>Yến chưng đặc biệt 5</h3>
+      <select id="size5">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(5)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 6">
+      <h3>Yến chưng đặc biệt 6</h3>
+      <select id="size6">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(6)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 7">
+      <h3>Yến chưng đặc biệt 7</h3>
+      <select id="size7">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(7)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 8">
+      <h3>Yến chưng đặc biệt 8</h3>
+      <select id="size8">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(8)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 9">
+      <h3>Yến chưng đặc biệt 9</h3>
+      <select id="size9">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(9)">🛒 Mua ngay</button>
+    </div>
+    
+    <div class="product-card">
+      <img src="yenchung-real.png" alt="Yến 10">
+      <h3>Yến chưng đặc biệt 10</h3>
+      <select id="size10">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(10)">🛒 Mua ngay</button>
+    </div>
+    
   </div>
 </div>
 
-<div id="cart-popup">Đã thêm vào giỏ hàng!</div>
-
-<section class="footer">
-  <h3>Liên hệ tư vấn nhanh:</h3>
-  <button class="zalo" onclick="window.open('https://zalo.me/0942244994')">Chat Zalo</button>
-  <button class="messenger" onclick="window.open('https://m.me/YenOcean')">Messenger</button>
-</section>
+<!-- Giỏ hàng popup -->
+<div id="cart" class="cart-popup">
+  <button class="close-cart" onclick="toggleCart()">×</button>
+  <h3>🛒 Giỏ hàng của bạn</h3>
+  <div id="cart-items"></div>
+  <div class="cart-total" id="cart-total">Tổng: 0đ</div>
+  <button class="btn order-btn" onclick="sendOrder()">📩 Gửi đơn qua Zalo</button>
+</div>
 
 <script>
-  function addToCart(product) {
-    const popup = document.getElementById("cart-popup");
-    popup.innerText = `${product} đã được thêm vào giỏ hàng!`;
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 2500);
-  }
+let cart = [];
 
-  function showPopup(id) {
-    document.getElementById(id).style.display = 'flex';
+function toggleCart(force) {
+  const popup = document.getElementById("cart");
+  if (force === "show") {
+    popup.classList.add("show");
+  } else {
+    popup.classList.toggle("show");
   }
+}
 
-  function closePopup(id) {
-    document.getElementById(id).style.display = 'none';
-  }
+function addToCart(i) {
+  const select = document.getElementById("size" + i);
+  const label = select.options[select.selectedIndex].text;
+  const price = parseInt(select.value);
+  cart.push({ name: "Yến chưng đặc biệt " + i, label, price });
+  renderCart();
+  toggleCart("show");
+}
+
+function renderCart() {
+  const area = document.getElementById("cart-items");
+  const totalText = document.getElementById("cart-total");
+  area.innerHTML = "";
+  let total = 0;
+  cart.forEach((item, i) => {
+    area.innerHTML += `
+      <div class="cart-item">
+        ${i+1}. ${item.name} – ${item.label} (${item.price}.000đ)
+        <button onclick="removeFromCart(${i})" style="color:red; border:none; float:right;">×</button>
+      </div>`;
+    total += item.price;
+  });
+  totalText.innerText = `Tổng: ${total}.000đ`;
+}
+
+function removeFromCart(i) {
+  cart.splice(i, 1);
+  renderCart();
+}
+
+function sendOrder() {
+  if (cart.length === 0) return alert("Bạn chưa chọn gì cả!");
+  let msg = "🧾 ĐƠN ĐẶT HÀNG YẾN:
+";
+  let total = 0;
+  cart.forEach((item, i) => {
+    msg += `${i+1}. ${item.name} – ${item.label} : ${item.price}.000đ
+`;
+    total += item.price;
+  });
+  msg += `Tổng cộng: ${total}.000đ`;
+  window.open("https://zalo.me/0942244994?text=" + encodeURIComponent(msg), "_blank");
+}
 </script>
 
 </body>
