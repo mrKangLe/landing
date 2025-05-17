@@ -1,45 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến chưng hạt sen - Đặt hàng</title>
+  <title>Yến chưng hạt sen</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fefbe9; color: #003c5c; }
-    header { text-align: center; padding: 40px 20px; background: #fff9e5; }
-    h1 { font-size: 2em; margin-bottom: 10px; color: #ff8000; }
-    .container { max-width: 700px; margin: auto; padding: 20px; }
-    .card { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-    .card img { width: 100%; max-width: 300px; border-radius: 10px; margin-bottom: 15px; }
-    select, button { padding: 10px; margin: 10px 0; width: 100%; max-width: 300px; }
-    #cart { margin-top: 30px; background: #fff3da; padding: 20px; border-radius: 12px; }
-    .total { font-weight: bold; color: #d35400; margin-top: 10px; }
-    .btn { background: #ff8000; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    body { font-family: 'Segoe UI'; background: #fffbe9; margin: 0; padding: 0; }
+    header { background: #fff3da; padding: 30px; text-align: center; }
+    h1 { color: #ff8000; }
+    .container { padding: 20px; max-width: 600px; margin: auto; }
+    .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+    .card img { max-width: 100%; border-radius: 10px; margin-bottom: 15px; }
+    select, .btn { padding: 10px; margin: 8px 0; width: 100%; max-width: 300px; }
+    .btn { background: #ff8000; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
     .btn:hover { background: #e36e00; }
+    #cart { margin-top: 30px; background: #fff4d1; padding: 20px; border-radius: 12px; }
+    .total { font-weight: bold; color: #c0392b; margin-top: 10px; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>YẾN CHƯNG HẠT SEN, TÁO ĐỎ, LÁ NẾP</h1>
+  <h1>YẾN CHƯNG HẠT SEN</h1>
 </header>
 
 <div class="container">
   <div class="card">
-    <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp">
-    <p><strong>Chọn dung tích:</strong></p>
+    <img src="yenchung-real.png" alt="Yến chưng hạt sen">
+    <p><strong>Dung tích:</strong></p>
     <select id="size">
-      <option value="75">75ml - 49.000đ</option>
-      <option value="100" selected>100ml - 59.000đ</option>
-      <option value="150">150ml - 69.000đ</option>
+      <option value="49">75ml – 49.000đ</option>
+      <option value="59" selected>100ml – 59.000đ</option>
+      <option value="69">150ml – 69.000đ</option>
     </select>
-    <p><strong>Chọn vị ngọt:</strong></p>
+
+    <p><strong>Vị ngọt:</strong></p>
     <select id="sweet">
       <option>Không đường</option>
       <option selected>Ít ngọt</option>
       <option>Vừa ngọt</option>
     </select>
+
     <button class="btn" onclick="addToCart()">➕ Thêm vào giỏ hàng</button>
   </div>
 
@@ -52,47 +53,52 @@
 </div>
 
 <script>
-  let cart = [];
+let cart = [];
 
-  function addToCart() {
-    const size = document.getElementById("size").value;
-    const sweet = document.getElementById("sweet").value;
-    const sizeText = document.getElementById("size").selectedOptions[0].text;
-    const price = parseInt(size);
+function addToCart() {
+  const sizeEl = document.getElementById("size");
+  const sweetEl = document.getElementById("sweet");
 
-    cart.push({ product: "Yến chưng hạt sen", size: sizeText, sweet: sweet, price: price });
-    renderCart();
+  const sizeText = sizeEl.options[sizeEl.selectedIndex].text;
+  const price = parseInt(sizeEl.value);
+  const sweet = sweetEl.value;
+
+  cart.push({ size: sizeText, sweet: sweet, price: price });
+  renderCart();
+}
+
+function renderCart() {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  cart.forEach((item, idx) => {
+    cartItems.innerHTML += `<p>${idx + 1}. Yến chưng - ${item.size} - ${item.sweet} : ${item.price}.000đ</p>`;
+    total += item.price;
+  });
+
+  cartTotal.innerText = `Tổng: ${total}.000đ`;
+}
+
+function sendOrder() {
+  if (cart.length === 0) {
+    alert("Bạn chưa thêm sản phẩm nào!");
+    return;
   }
 
-  function renderCart() {
-    const cartItems = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-    cartItems.innerHTML = "";
+  let message = "Xin chào, tôi muốn đặt:\n";
+  let total = 0;
+  cart.forEach((item, idx) => {
+    message += `${idx + 1}. Yến chưng - ${item.size} - ${item.sweet} : ${item.price}.000đ\n`;
+    total += item.price;
+  });
 
-    let total = 0;
-    cart.forEach((item, index) => {
-      total += item.price;
-      cartItems.innerHTML += `<p>${index + 1}. ${item.product} - ${item.size} - ${item.sweet} : ${item.price}.000đ</p>`;
-    });
-    cartTotal.innerText = `Tổng: ${total}.000đ`;
-  }
+  message += `Tổng cộng: ${total}.000đ`;
 
-  function sendOrder() {
-    if (cart.length === 0) {
-      alert("Bạn chưa chọn sản phẩm nào!");
-      return;
-    }
-    let message = "Xin chào, tôi muốn đặt:
-";
-    cart.forEach((item, index) => {
-      message += `${index + 1}. ${item.product} - ${item.size} - ${item.sweet} : ${item.price}.000đ
-`;
-    });
-    const total = cart.reduce((sum, i) => sum + i.price, 0);
-    message += `Tổng cộng: ${total}.000đ`;
-    const encoded = encodeURIComponent(message);
-    window.open(`https://zalo.me/0942244994?text=${encoded}`, "_blank");
-  }
+  const link = "https://zalo.me/0942244994?text=" + encodeURIComponent(message);
+  window.open(link, "_blank");
+}
 </script>
 
 </body>
