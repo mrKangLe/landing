@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến chưng - Toggle chi tiết hoạt động đúng</title>
+  <title>Yến chưng - Giỏ hàng hoạt động + Toggle chi tiết</title>
   <style>
     body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffbe9; color: #003c5c; }
     header { text-align: center; padding: 30px 20px; background: #fff3da; }
@@ -23,10 +23,6 @@
       flex-direction: column;
     }
 
-    .toggle-area {
-      cursor: pointer;
-    }
-
     .product img {
       width: 100%;
       object-fit: cover;
@@ -41,6 +37,7 @@
       margin: 0;
       color: #d35400;
       font-size: 18px;
+      cursor: pointer;
     }
 
     .detail {
@@ -117,20 +114,16 @@
 <body>
 
 <header>
-  <h1>YẾN CHƯNG – CHI TIẾT MỞ ĐÚNG</h1>
+  <h1>YẾN CHƯNG – GIỎ HÀNG ĐÃ SỬA CHẠY</h1>
 </header>
 
 <div class="container">
   <div class="row">
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d0')">
-        <img src="yenchung-real.png" alt="Yến 1">
-        <div class="info">
-          <h3>Yến 1</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 1">
       <div class="info">
+        <h3 onclick="toggleDetail('d0')">Yến 1</h3>
         <div id="d0" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
@@ -147,13 +140,9 @@
 
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d1')">
-        <img src="yenchung-real.png" alt="Yến 2">
-        <div class="info">
-          <h3>Yến 2</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 2">
       <div class="info">
+        <h3 onclick="toggleDetail('d1')">Yến 2</h3>
         <div id="d1" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
@@ -170,13 +159,9 @@
 
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d2')">
-        <img src="yenchung-real.png" alt="Yến 3">
-        <div class="info">
-          <h3>Yến 3</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 3">
       <div class="info">
+        <h3 onclick="toggleDetail('d2')">Yến 3</h3>
         <div id="d2" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
@@ -193,13 +178,9 @@
 
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d3')">
-        <img src="yenchung-real.png" alt="Yến 4">
-        <div class="info">
-          <h3>Yến 4</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 4">
       <div class="info">
+        <h3 onclick="toggleDetail('d3')">Yến 4</h3>
         <div id="d3" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
@@ -216,13 +197,9 @@
 
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d4')">
-        <img src="yenchung-real.png" alt="Yến 5">
-        <div class="info">
-          <h3>Yến 5</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 5">
       <div class="info">
+        <h3 onclick="toggleDetail('d4')">Yến 5</h3>
         <div id="d4" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
@@ -239,13 +216,9 @@
 
 
     <div class="product">
-      <div class="toggle-area" onclick="toggleDetail('d5')">
-        <img src="yenchung-real.png" alt="Yến 6">
-        <div class="info">
-          <h3>Yến 6</h3>
-        </div>
-      </div>
+      <img src="yenchung-real.png" alt="Yến 6">
       <div class="info">
+        <h3 onclick="toggleDetail('d5')">Yến 6</h3>
         <div id="d5" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
