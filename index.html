@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -7,72 +6,83 @@
   <title>Bộ Sưu Tập Yến Chưng Mùa Hè</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: linear-gradient(to top, #ffe9b6, #b3ecff);
+      padding: 0;
+      background: #fefbe9;
       color: #003c5c;
     }
     header {
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
       background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpMByvCnJ9MrBMoMJ6bFa_4e5xmtTSCLxegVTs66Qj2znsQiuAxm8Sib6D6LMG9ei-1Wn9EUh-138lT0yJpdReKgsenq749nt5vzmwHRAlTMA6dSaPMRdD0B6Pr2GlZL9GkG6pQa3z_J2nWxmOHLEFDOlnHhzPKEmabuWi7pejF3117zG1WfEmspB1C145/s1600/ChatGPT%20Image%2014_59_08%2017%20thg%205,%202025.png') no-repeat center center / cover;
       color: #fff;
     }
     h1 {
-      color: #ff8000;
-      font-size: 2.2em;
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ffdd99;
+    }
+    h2 {
+      margin-top: 0;
     }
     .products {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    .row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 30px;
     }
     .card {
-      background: #fffbe7;
-      padding: 15px;
+      background: #fff;
       border-radius: 12px;
-      width: 250px;
+      width: 100%;
+      max-width: 280px;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      padding: 15px;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
     }
     .card img {
       width: 100px;
       height: 100px;
+      margin-bottom: 10px;
     }
     .btn {
       background: #ff8000;
-      color: #fff;
-      padding: 10px 16px;
+      color: white;
       border: none;
+      padding: 10px 16px;
       border-radius: 6px;
-      cursor: pointer;
       font-weight: bold;
+      cursor: pointer;
     }
     .btn:hover {
       background: #e36e00;
     }
     .footer {
       text-align: center;
-      padding: 20px;
+      padding: 30px 10px;
     }
     .footer button {
-      margin: 5px;
+      margin: 8px;
       padding: 10px 20px;
       border-radius: 20px;
       border: none;
       font-weight: bold;
       cursor: pointer;
     }
-    .zalo {
-      background: #00c186;
-      color: white;
-    }
-    .messenger {
-      background: #0078ff;
-      color: white;
-    }
+    .zalo { background: #00c186; color: #fff; }
+    .messenger { background: #0078ff; color: #fff; }
+
     #cart-popup {
       position: fixed;
       bottom: 20px;
@@ -83,6 +93,13 @@
       border-radius: 10px;
       display: none;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    @media (min-width: 600px) {
+      .row {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
@@ -91,66 +108,31 @@
 <header>
   <h2>BỘ SƯU TẬP</h2>
   <h1>YẾN CHƯNG MÙA HÈ</h1>
-  <p>Thưởng vị mùa nắng cùng 6 hương vị mới mát lành, trẻ trung</p>
+  <p>6 vị mát lành, trẻ trung – Nạp năng lượng mùa nắng</p>
 </header>
 
 <section class="products">
-  <div class="card">
-    <img src="https://i.imgur.com/FzNgljS.png" alt="Yến Chanh Sả">
-    <h3>Yến Chanh Sả</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Chanh Sả')">Mua ngay</button>
+  <div class="row">
+    <div class="card">
+      <img src="https://i.imgur.com/FzNgljS.png" alt="Yến Chanh Sả">
+      <h3>Yến Chanh Sả</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Chanh Sả')">Mua ngay</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/dEuK6ZX.png" alt="Yến Táo Dứa">
+      <h3>Yến Táo Dứa</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Táo Dứa')">Mua ngay</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/5Wf3XcI.png" alt="Yến Dừa Non">
+      <h3>Yến Dừa Non</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Dừa Non')">Mua ngay</button>
+    </div>
   </div>
-  <div class="card">
-    <img src="https://i.imgur.com/dEuK6ZX.png" alt="Yến Táo Dứa">
-    <h3>Yến Táo Dứa</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Táo Dứa')">Mua ngay</button>
-  </div>
-  <div class="card">
-    <img src="https://i.imgur.com/5Wf3XcI.png" alt="Yến Dừa Non">
-    <h3>Yến Dừa Non</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Dừa Non')">Mua ngay</button>
-  </div>
-  <div class="card">
-    <img src="https://i.imgur.com/fHyv9Xp.png" alt="Yến Cam Mật">
-    <h3>Yến Cam Mật</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Cam Mật')">Mua ngay</button>
-  </div>
-  <div class="card">
-    <img src="https://i.imgur.com/UMCGJS1.png" alt="Yến Lá Dứa Hạt Chia">
-    <h3>Yến Lá Dứa</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Lá Dứa')">Mua ngay</button>
-  </div>
-  <div class="card">
-    <img src="https://i.imgur.com/bPP14Wh.png" alt="Yến Vải Tươi">
-    <h3>Yến Vải Tươi</h3>
-    <p>100ml – 59.000đ</p>
-    <button class="btn" onclick="addToCart('Yến Vải Tươi')">Mua ngay</button>
-  </div>
-</section>
 
-<div id="cart-popup">Đã thêm vào giỏ hàng!</div>
-
-<section class="footer">
-  <h3>Liên hệ tư vấn nhanh:</h3>
-  <button class="zalo" onclick="window.open('https://zalo.me/0942244994')">Chat Zalo</button>
-  <button class="messenger" onclick="window.open('https://m.me/YenOcean')">Messenger</button>
-</section>
-
-<script>
-  function addToCart(product) {
-    const popup = document.getElementById("cart-popup");
-    popup.innerText = `${product} đã được thêm vào giỏ hàng!`;
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 2500);
-  }
-</script>
-
-</body>
-</html>
+  <div class="row">
+    <div class="card">
+      <img src="https://i.imgur.com/fHyv9Xp
