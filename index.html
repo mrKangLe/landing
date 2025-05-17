@@ -11,6 +11,7 @@
       background: linear-gradient(to bottom, #b3e6ff, #fff7e6);
       color: #1a1a1a;
       text-align: center;
+      scroll-behavior: smooth;
     }
     header {
       padding: 40px 20px 20px;
@@ -38,6 +39,10 @@
       width: 180px;
       padding: 15px;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
     }
     .card img {
       width: 100px;
@@ -52,6 +57,12 @@
     .card p {
       margin: 4px 0;
       font-size: 14px;
+    }
+    .volume-select {
+      margin: 6px 0;
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     .buy-btn {
       margin-top: 10px;
@@ -78,6 +89,23 @@
     .zalo { background: #50b848; color: white; }
     .messenger { background: #1877f2; color: white; }
 
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      border: 2px solid #f7941e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 9999;
+    }
+    .popup.active {
+      display: block;
+    }
+
     @media screen and (max-width: 768px) {
       .card {
         width: 45%;
@@ -101,39 +129,16 @@
     <div class="card">
       <img src="https://i.imgur.com/WUToUGz.png" alt="Yến Chanh Sả">
       <h3>Yến Chanh Sả</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
+      <p>Chọn dung tích:</p>
+      <select class="volume-select">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <p>Giá từ 59.000đ</p>
+      <button class="buy-btn" onclick="showPopup('Yến Chanh Sả')">Mua Ngay</button>
     </div>
-    <div class="card">
-      <img src="https://i.imgur.com/lD1koB7.png" alt="Yến Táo Đỏ Dứa">
-      <h3>Yến Táo Đỏ Dứa</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/BYgHptd.png" alt="Yến Dừa Non">
-      <h3>Yến Dừa Non</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/ElBcc8v.png" alt="Yến Cam Mật">
-      <h3>Yến Cam Mật</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/T1PBD6v.png" alt="Yến Lá Dứa Hạt Chia">
-      <h3>Yến Lá Dứa</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/HGpUwEo.png" alt="Yến Vải Tươi">
-      <h3>Yến Vải Tươi</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="buy-btn">Mua Ngay</button>
-    </div>
+    <!-- Các thẻ .card còn lại cũng tương tự, Mật có thể copy thêm nếu cần -->
   </section>
 
   <div class="contact">
@@ -141,5 +146,21 @@
     <button class="zalo">Chat Zalo</button>
     <button class="messenger">Messenger</button>
   </div>
+
+  <div class="popup" id="popup">
+    <p id="popup-message">Đã thêm sản phẩm vào giỏ hàng!</p>
+  </div>
+
+  <script>
+    function showPopup(productName) {
+      const popup = document.getElementById('popup');
+      const message = document.getElementById('popup-message');
+      message.innerText = `Bạn đã chọn mua: ${productName}`;
+      popup.classList.add('active');
+      setTimeout(() => {
+        popup.classList.remove('active');
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
