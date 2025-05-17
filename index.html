@@ -1,62 +1,145 @@
-<div style="background: url('https://cdn.pixabay.com/photo/2020/03/30/12/24/beach-4989843_1280.jpg') no-repeat center top; background-size: cover; padding: 40px 15px; font-family: 'Segoe UI', sans-serif;">
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bộ Sưu Tập Yến Chưng Mùa Hè</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #b3e6ff, #fff7e6);
+      color: #1a1a1a;
+      text-align: center;
+    }
+    header {
+      padding: 40px 20px 20px;
+    }
+    h1 {
+      color: #ff6600;
+      font-size: 28px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 20px;
+    }
+    .card {
+      background: #fffbea;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 180px;
+      padding: 15px;
+      text-align: center;
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .buy-btn {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #f7941e;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .contact {
+      padding: 30px 0 50px;
+    }
+    .contact button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .zalo { background: #50b848; color: white; }
+    .messenger { background: #1877f2; color: white; }
 
-  <div style="max-width: 960px; margin: auto; background: rgba(255,255,255,0.95); padding: 30px; border-radius: 16px; box-shadow: 0 0 15px rgba(0,0,0,0.1); text-align: center;">
+    @media screen and (max-width: 768px) {
+      .card {
+        width: 45%;
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>BỘ SƯU TẬP</h2>
+    <h1>YẾN CHƯNG MÙA HÈ</h1>
+    <p>Thưởng vị mùa nắng cùng 6 hương vị mới<br>mát lành, trẻ trung</p>
+  </header>
 
-    <h1 style="color: #f26522; font-size: 30px;">Bộ Sưu Tập<br/>Yến Chưng Mùa Hè</h1>
-    <h2 style="color: #444; font-size: 20px; margin-bottom: 30px;">Thưởng vị mùa nắng cùng 6 hương vị mới<br/>mát lành, trẻ trung</h2>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-
-      <!-- Sản phẩm -->
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/n1aUemY.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Chanh Sả</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/m0gNqex.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Táo Đỏ Dứa</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/KaUOLbp.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Dừa Non</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/ND7FXSv.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Cam Mật Ong</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/WjKNpxC.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Lá Dứa Hạt Chia</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
-      <div style="width: 180px; background: #fffaf0; padding: 15px; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
-        <img src="https://i.imgur.com/rzTEmO6.jpg" style="width: 100%; border-radius: 8px;">
-        <h3 style="margin: 10px 0 5px;">Yến Vải Tươi</h3>
-        <p>100 ml</p>
-        <a href="https://zalo.me/0942244994" style="display: inline-block; background: #f26522; color: white; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Mua Ngay</a>
-      </div>
-
+  <section class="products">
+    <div class="card">
+      <img src="https://i.imgur.com/WUToUGz.png" alt="Yến Chanh Sả">
+      <h3>Yến Chanh Sả</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
     </div>
-
-    <div style="margin-top: 40px; padding: 20px; background: #fff8e1; border-radius: 12px;">
-      <p style="font-size: 18px; font-weight: bold;">Liên hệ tư vấn nhanh:</p>
-      <a href="https://zalo.me/0942244994" style="background: #2196F3; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; margin: 5px;">Chat Zalo</a>
-      <a href="https://m.me/yenchungocean" style="background: #0084FF; color: white; padding: 10px 16px; border-radius: 6px; text-decoration: none; margin: 5px;">Messenger</a>
+    <div class="card">
+      <img src="https://i.imgur.com/lD1koB7.png" alt="Yến Táo Đỏ Dứa">
+      <h3>Yến Táo Đỏ Dứa</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
     </div>
+    <div class="card">
+      <img src="https://i.imgur.com/BYgHptd.png" alt="Yến Dừa Non">
+      <h3>Yến Dừa Non</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/ElBcc8v.png" alt="Yến Cam Mật">
+      <h3>Yến Cam Mật</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/T1PBD6v.png" alt="Yến Lá Dứa Hạt Chia">
+      <h3>Yến Lá Dứa</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
+    </div>
+    <div class="card">
+      <img src="https://i.imgur.com/HGpUwEo.png" alt="Yến Vải Tươi">
+      <h3>Yến Vải Tươi</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="buy-btn">Mua Ngay</button>
+    </div>
+  </section>
 
+  <div class="contact">
+    <p>Liên hệ tư vấn nhanh:</p>
+    <button class="zalo">Chat Zalo</button>
+    <button class="messenger">Messenger</button>
   </div>
-</div>
+</body>
+</html>
