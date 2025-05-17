@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yến chưng - Fix sự kiện JS</title>
+  <title>Yến chưng - Hoạt động đúng trên GitHub Pages</title>
   <style>
     body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffbe9; color: #003c5c; }
     header { background: #fff3da; padding: 30px 20px; text-align: center; }
@@ -65,13 +66,11 @@
 <body>
 
 <header>
-  <h1>BỘ SƯU TẬP YẾN CHƯNG – FIX JS</h1>
+  <h1>BỘ SƯU TẬP YẾN CHƯNG – CHẠY TRÊN GITHUB PAGES</h1>
 </header>
 
 <div class="container">
-  <div class="row" id="product-list">
-    <!-- Các sản phẩm sẽ được JS sinh ra -->
-  </div>
+  <div class="row" id="product-list"></div>
 
   <div id="cart">
     <h2>🛒 Giỏ hàng</h2>
@@ -84,18 +83,19 @@
 <script>
 let cart = [];
 
-const products = Array.from({length: 6}, (_, i) => ({
-  name: `Yến ${i+1}`,
-  id: i
-}));
+window.onload = function() {
+  const products = Array.from({length: 6}, (_, i) => ({
+    name: `Yến ${i+1}`,
+    id: i
+  }));
 
-function createProductHTML(p) {
-  return `
+  const container = document.getElementById("product-list");
+  container.innerHTML = products.map(p => `
     <div class="product">
       <img src="yenchung-real.png" alt="${p.name}">
       <div class="info">
-        <h3 data-toggle="d${p.id}">${p.name}</h3>
-        <div id="d${p.id}" class="detail">
+        <h3 id="toggle-${p.id}">${p.name}</h3>
+        <div id="detail-${p.id}" class="detail">
           <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
           <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
         </div>
@@ -105,31 +105,23 @@ function createProductHTML(p) {
           <option value="110">150ml – 110.000đ</option>
           <option value="170">200ml – 170.000đ</option>
         </select>
-        <button class="btn" data-add="${p.id}">🛒 Thêm vào giỏ hàng</button>
+        <button class="btn" id="add-${p.id}">🛒 Thêm vào giỏ hàng</button>
       </div>
-    </div>
-  `;
-}
+    </div>`).join("");
 
-document.getElementById("product-list").innerHTML = products.map(createProductHTML).join("");
-
-document.querySelectorAll("[data-toggle]").forEach(el => {
-  el.addEventListener("click", () => {
-    const id = el.getAttribute("data-toggle");
-    document.getElementById(id).classList.toggle("active");
+  products.forEach(p => {
+    document.getElementById(`toggle-${p.id}`).onclick = () => {
+      document.getElementById(`detail-${p.id}`).classList.toggle("active");
+    };
+    document.getElementById(`add-${p.id}`).onclick = () => {
+      const select = document.getElementById("size" + p.id);
+      const label = select.options[select.selectedIndex].text;
+      const price = parseInt(select.value);
+      cart.push({ name: p.name, label, price });
+      renderCart();
+    };
   });
-});
-
-document.querySelectorAll("[data-add]").forEach(el => {
-  el.addEventListener("click", () => {
-    const id = el.getAttribute("data-add");
-    const select = document.getElementById("size" + id);
-    const label = select.options[select.selectedIndex].text;
-    const price = parseInt(select.value);
-    cart.push({ name: `Yến ${parseInt(id)+1}`, label, price });
-    renderCart();
-  });
-});
+};
 
 function renderCart() {
   const area = document.getElementById("cart-items");
@@ -156,10 +148,12 @@ function removeFromCart(index) {
 
 function sendOrder() {
   if (cart.length === 0) return alert("Bạn chưa thêm sản phẩm nào!");
-  let message = "Xin chào, tôi muốn đặt:\n";
+  let message = "Xin chào, tôi muốn đặt:
+";
   let total = 0;
   cart.forEach((item, i) => {
-    message += `${i+1}. ${item.name} – ${item.label} : ${item.price}.000đ\n`;
+    message += `${i+1}. ${item.name} – ${item.label} : ${item.price}.000đ
+`;
     total += item.price;
   });
   message += `Tổng cộng: ${total}.000đ`;
