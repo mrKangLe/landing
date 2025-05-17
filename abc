@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Yến Ocean</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('AF5749EE-756B-4900-8C70-F87C56A7D70F.jpeg') no-repeat center top;
+      background-size: cover;
+      color: white;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      color: #000;
+      border-radius: 12px;
+      padding: 30px;
+      margin-top: 60px;
+    }
+    h1 {
+      text-align: center;
+      color: darkred;
+      font-size: 28px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .price-box {
+      margin-top: 20px;
+      background: #f8e7dc;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .price-box p {
+      margin: 5px 0;
+    }
+    .note {
+      font-style: italic;
+      color: #333;
+      margin-top: 15px;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .contact p {
+      margin: 6px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <h1>MENU BIRD’S NEST</h1>
+      <ul>
+        <li>Yến chưng hạt sen táo đỏ, nước lá nếp</li>
+        <li>Yến chưng hạt sen long nhãn, nước lá nếp</li>
+        <li>Yến chưng hạt sen kỉ tử, nước lá nếp</li>
+        <li>Yến chưng long nhãn táo đỏ, nước lá nếp</li>
+        <li>Yến chưng táo đỏ, kỉ tử, nước lá nếp</li>
+        <li>Yến chưng lá nếp hạt chia</li>
+        <li>Yến chưng dừa tươi kỉ tử</li>
+        <li>Yến chưng saffron</li>
+        <li>Yến chưng gừng</li>
+        <li>Yến chưng nấm đông trùng hạ thảo</li>
+        <li>Yến chưng đông trùng hạ thảo nhập khẩu Nepal (400k/con)</li>
+      </ul>
+
+      <div class="price-box">
+        <p>Hũ 75ml: 55.000đ</p>
+        <p>Hũ 100ml: 85.000đ</p>
+        <p>Hũ 150ml: 110.000đ</p>
+        <p>Hũ 200ml: 170.000đ</p>
+      </div>
+
+      <p class="note">* Khách hàng có thể tuỳ chọn vị và mix topping theo ý thích.</p>
+
+      <div class="contact">
+        <p><strong>YẾN OCEAN - 100% Thiên Nhiên</strong></p>
+        <p>Hotline: <a href="tel:0942244994">09 4224 4994</a></p>
+        <p>Website: <a href="https://yenocean.ocp.vn" target="_blank">yenocean.ocp.vn</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
