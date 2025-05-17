@@ -52,8 +52,10 @@
       transform: translateY(-5px);
     }
     .card img {
-      width: 100px;
-      height: 100px;
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
       margin-bottom: 10px;
     }
     .btn {
@@ -114,17 +116,20 @@
 <section class="products">
   <div class="row">
     <div class="card">
-      <img src="https://i.imgur.com/FzNgljS.png" alt="Yến Chanh Sả">
-      <h3>Yến Chanh Sả</h3>
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL6ybLUBeDZFO_s_sZnY8UgoXBEOqIem3WY4hBbx16GASOkTW4NZG1lhkRRZTL4y6AVqTlhRBTlGOiJvdjOUJkYk8IQvwCmCvEzWkq1KzvJz3eRMkptDTrqCkSSjP8H0RwbPYsFiNFjeTw5F3kY4wE7ZP5DdB94oGBpUS4HZzRzMj1jGjGRzDJEealN8E/s1600/yenchung-real.png" 
+           alt="Yến chưng hạt sen, táo đỏ, lá nếp">
+      <h3>Yến chưng hạt sen, táo đỏ, lá nếp</h3>
       <p>100ml – 59.000đ</p>
-      <button class="btn" onclick="addToCart('Yến Chanh Sả')">Mua ngay</button>
+      <button class="btn" onclick="addToCart('Yến hạt sen, táo đỏ, lá nếp')">Mua ngay</button>
     </div>
+
     <div class="card">
       <img src="https://i.imgur.com/dEuK6ZX.png" alt="Yến Táo Dứa">
       <h3>Yến Táo Dứa</h3>
       <p>100ml – 59.000đ</p>
       <button class="btn" onclick="addToCart('Yến Táo Dứa')">Mua ngay</button>
     </div>
+
     <div class="card">
       <img src="https://i.imgur.com/5Wf3XcI.png" alt="Yến Dừa Non">
       <h3>Yến Dừa Non</h3>
@@ -135,4 +140,46 @@
 
   <div class="row">
     <div class="card">
-      <img src="https://i.imgur.com/fHyv9Xp
+      <img src="https://i.imgur.com/fHyv9Xp.png" alt="Yến Cam Mật">
+      <h3>Yến Cam Mật</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Cam Mật')">Mua ngay</button>
+    </div>
+
+    <div class="card">
+      <img src="https://i.imgur.com/UMCGJS1.png" alt="Yến Lá Dứa">
+      <h3>Yến Lá Dứa</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Lá Dứa')">Mua ngay</button>
+    </div>
+
+    <div class="card">
+      <img src="https://i.imgur.com/bPP14Wh.png" alt="Yến Vải Tươi">
+      <h3>Yến Vải Tươi</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến Vải Tươi')">Mua ngay</button>
+    </div>
+  </div>
+</section>
+
+<div id="cart-popup">Đã thêm vào giỏ hàng!</div>
+
+<section class="footer">
+  <h3>Liên hệ tư vấn nhanh:</h3>
+  <button class="zalo" onclick="window.open('https://zalo.me/0942244994')">Chat Zalo</button>
+  <button class="messenger" onclick="window.open('https://m.me/YenOcean')">Messenger</button>
+</section>
+
+<script>
+  function addToCart(product) {
+    const popup = document.getElementById("cart-popup");
+    popup.innerText = `${product} đã được thêm vào giỏ hàng!`;
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 2500);
+  }
+</script>
+
+</body>
+</html>
