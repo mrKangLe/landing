@@ -2,237 +2,76 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến chưng - Giỏ hàng hoạt động + Toggle chi tiết</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yến chưng - Fix sự kiện JS</title>
   <style>
     body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffbe9; color: #003c5c; }
-    header { text-align: center; padding: 30px 20px; background: #fff3da; }
-    h1 { color: #ff8000; margin: 0; }
+    header { background: #fff3da; padding: 30px 20px; text-align: center; }
+    h1 { margin: 0; color: #ff8000; }
 
     .container { max-width: 1000px; margin: auto; padding: 20px; }
     .row { display: flex; flex-wrap: wrap; gap: 20px; }
+
     .product {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      overflow: hidden;
-      flex: 1 1 100%;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
+      background: #fff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      flex: 1 1 100%; max-width: 100%; display: flex; flex-direction: column; overflow: hidden;
     }
 
-    .product img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: 16px 16px 0 0;
-    }
-
-    .info {
-      padding: 16px;
-    }
-
-    .info h3 {
-      margin: 0;
-      color: #d35400;
-      font-size: 18px;
-      cursor: pointer;
-    }
+    .product img { width: 100%; border-radius: 16px 16px 0 0; object-fit: cover; }
+    .info { padding: 16px; }
+    .info h3 { margin: 0; font-size: 18px; color: #d35400; cursor: pointer; }
 
     .detail {
-      display: none;
-      background: #fffaf0;
-      margin-top: 10px;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 14px;
+      display: none; background: #fffaf0; margin-top: 10px;
+      padding: 12px; border-radius: 8px; font-size: 14px;
     }
 
     .detail.active { display: block; }
 
-    select {
-      margin-top: 12px;
-      padding: 8px;
-      width: 100%;
-      border-radius: 8px;
+    select, .btn {
+      width: 100%; margin-top: 12px; padding: 10px;
+      border-radius: 8px; font-size: 15px;
     }
 
     .btn {
-      margin-top: 12px;
-      padding: 10px 20px;
-      background: #ff8000;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      width: 100%;
+      background: #ff8000; color: white; border: none; font-weight: bold; cursor: pointer;
     }
 
     .btn:hover { background: #e36e00; }
 
-    @media(min-width: 768px) {
-      .product {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-      }
-    }
-
     #cart {
-      background: #fff4d1;
-      padding: 16px;
-      margin-top: 30px;
-      border-radius: 12px;
+      background: #fff4d1; padding: 16px; margin-top: 30px; border-radius: 12px;
     }
 
     .cart-item {
-      border-bottom: 1px solid #ddd;
-      padding: 8px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .cart-total {
-      font-weight: bold;
-      margin-top: 10px;
-      color: #c0392b;
+      border-bottom: 1px solid #ddd; padding: 8px 0;
+      display: flex; justify-content: space-between; align-items: center;
     }
 
     .remove-btn {
-      background: none;
-      border: none;
-      color: red;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 18px;
+      background: none; border: none; color: red;
+      font-weight: bold; cursor: pointer; font-size: 18px;
+    }
+
+    .cart-total {
+      font-weight: bold; margin-top: 10px; color: #c0392b;
+    }
+
+    @media(min-width: 768px) {
+      .product { flex: 1 1 calc(50% - 20px); max-width: calc(50% - 20px); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>YẾN CHƯNG – GIỎ HÀNG ĐÃ SỬA CHẠY</h1>
+  <h1>BỘ SƯU TẬP YẾN CHƯNG – FIX JS</h1>
 </header>
 
 <div class="container">
-  <div class="row">
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 1">
-      <div class="info">
-        <h3 onclick="toggleDetail('d0')">Yến 1</h3>
-        <div id="d0" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size0">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 1', 'size0')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 2">
-      <div class="info">
-        <h3 onclick="toggleDetail('d1')">Yến 2</h3>
-        <div id="d1" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size1">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 2', 'size1')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 3">
-      <div class="info">
-        <h3 onclick="toggleDetail('d2')">Yến 3</h3>
-        <div id="d2" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size2">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 3', 'size2')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 4">
-      <div class="info">
-        <h3 onclick="toggleDetail('d3')">Yến 4</h3>
-        <div id="d3" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size3">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 4', 'size3')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 5">
-      <div class="info">
-        <h3 onclick="toggleDetail('d4')">Yến 5</h3>
-        <div id="d4" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size4">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 5', 'size4')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
-
-    <div class="product">
-      <img src="yenchung-real.png" alt="Yến 6">
-      <div class="info">
-        <h3 onclick="toggleDetail('d5')">Yến 6</h3>
-        <div id="d5" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size5">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" onclick="addToCart('Yến 6', 'size5')">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>
-
+  <div class="row" id="product-list">
+    <!-- Các sản phẩm sẽ được JS sinh ra -->
   </div>
 
   <div id="cart">
@@ -246,24 +85,52 @@
 <script>
 let cart = [];
 
-function toggleDetail(id) {
-  const el = document.getElementById(id);
-  el.classList.toggle("active");
+const products = Array.from({length: 6}, (_, i) => ({
+  name: `Yến ${i+1}`,
+  id: i
+}));
+
+function createProductHTML(p) {
+  return `
+    <div class="product">
+      <img src="yenchung-real.png" alt="${p.name}">
+      <div class="info">
+        <h3 data-toggle="d${p.id}">${p.name}</h3>
+        <div id="d${p.id}" class="detail">
+          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        </div>
+        <select id="size${p.id}">
+          <option value="55">75ml – 55.000đ</option>
+          <option value="85" selected>100ml – 85.000đ</option>
+          <option value="110">150ml – 110.000đ</option>
+          <option value="170">200ml – 170.000đ</option>
+        </select>
+        <button class="btn" data-add="${p.id}">🛒 Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  `;
 }
 
-function addToCart(name, sizeId) {
-  const sizeSelect = document.getElementById(sizeId);
-  const price = parseInt(sizeSelect.value);
-  const label = sizeSelect.options[sizeSelect.selectedIndex].text;
+document.getElementById("product-list").innerHTML = products.map(createProductHTML).join("");
 
-  cart.push({ name, label, price });
-  renderCart();
-}
+document.querySelectorAll("[data-toggle]").forEach(el => {
+  el.addEventListener("click", () => {
+    const id = el.getAttribute("data-toggle");
+    document.getElementById(id).classList.toggle("active");
+  });
+});
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
+document.querySelectorAll("[data-add]").forEach(el => {
+  el.addEventListener("click", () => {
+    const id = el.getAttribute("data-add");
+    const select = document.getElementById("size" + id);
+    const label = select.options[select.selectedIndex].text;
+    const price = parseInt(select.value);
+    cart.push({ name: `Yến ${parseInt(id)+1}`, label, price });
+    renderCart();
+  });
+});
 
 function renderCart() {
   const area = document.getElementById("cart-items");
@@ -281,6 +148,11 @@ function renderCart() {
   });
 
   totalText.innerText = `Tổng: ${total}.000đ`;
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
 }
 
 function sendOrder() {
