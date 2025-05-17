@@ -2,52 +2,62 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến chưng - Danh sách sản phẩm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yến chưng - Giao diện tối ưu mobile</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fffbe9; color: #003c5c; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffbe9; color: #003c5c; }
     header { text-align: center; padding: 30px 20px; background: #fff3da; }
     h1 { color: #ff8000; margin: 0; }
 
-    .container { padding: 20px; max-width: 900px; margin: auto; }
-    .product {
-      display: flex;
+    .container { max-width: 700px; margin: auto; padding: 20px; }
+    .card {
       background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       overflow: hidden;
-      cursor: pointer;
       transition: box-shadow 0.3s ease;
     }
-    .product:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.1); }
-    .product img {
-      width: 160px;
-      height: auto;
+    .card img {
+      width: 100%;
+      border-radius: 16px 16px 0 0;
       object-fit: cover;
     }
-    .info {
+    .card-content {
       padding: 16px;
-      flex: 1;
     }
-    .info h3 { margin: 0 0 8px 0; color: #d35400; }
-    .info p { margin: 6px 0; font-size: 14px; }
-
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #d35400;
+      cursor: pointer;
+    }
+    .card p {
+      font-size: 14px;
+      margin: 8px 0;
+    }
     .details {
       display: none;
-      background: #fffaf0;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
+      margin-top: 10px;
       font-size: 14px;
+      background: #fffaf0;
+      padding: 12px;
+      border-radius: 10px;
     }
-
     .details.active { display: block; }
 
     .btn {
-      background: #ff8000; color: white; padding: 8px 16px; border: none;
-      border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 10px;
+      margin-top: 12px;
+      padding: 10px 20px;
+      width: 100%;
+      background: #ff8000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
     }
     .btn:hover { background: #e36e00; }
   </style>
@@ -55,116 +65,114 @@
 <body>
 
 <header>
-  <h1>YẾN CHƯNG - DANH SÁCH SẢN PHẨM</h1>
+  <h1>BỘ SƯU TẬP YẾN CHƯNG</h1>
 </header>
 
 <div class="container">
 
-  <div class="product" onclick="toggleDetails('detail0')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 1">
-    <div class="info">
-      <h3>Yến 1</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d0')">Yến 1</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail0" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 1')">📩 Mua qua Zalo</button>
+      <div id="d0" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 1')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 
-  <div class="product" onclick="toggleDetails('detail1')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 2">
-    <div class="info">
-      <h3>Yến 2</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d1')">Yến 2</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail1" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 2')">📩 Mua qua Zalo</button>
+      <div id="d1" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 2')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 
-  <div class="product" onclick="toggleDetails('detail2')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 3">
-    <div class="info">
-      <h3>Yến 3</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d2')">Yến 3</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail2" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 3')">📩 Mua qua Zalo</button>
+      <div id="d2" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 3')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 
-  <div class="product" onclick="toggleDetails('detail3')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 4">
-    <div class="info">
-      <h3>Yến 4</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d3')">Yến 4</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail3" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 4')">📩 Mua qua Zalo</button>
+      <div id="d3" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 4')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 
-  <div class="product" onclick="toggleDetails('detail4')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 5">
-    <div class="info">
-      <h3>Yến 5</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d4')">Yến 5</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail4" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 5')">📩 Mua qua Zalo</button>
+      <div id="d4" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 5')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 
-  <div class="product" onclick="toggleDetails('detail5')">
+  <div class="card">
     <img src="yenchung-real.png" alt="Yến 6">
-    <div class="info">
-      <h3>Yến 6</h3>
+    <div class="card-content">
+      <h3 onclick="toggleDetail('d5')">Yến 6</h3>
       <p>Dung tích: 100ml – 59.000đ</p>
       <p>Vị ngọt: Ít ngọt</p>
-      <div id="detail5" class="details">
-        <p><strong>Thành phần:</strong> Yến sào tươi, hạt sen, táo đỏ, lá dứa.</p>
-        <p><strong>Công dụng:</strong> Bồi bổ cơ thể, tăng đề kháng, an thần.</p>
-        <p><strong>Hướng dẫn:</strong> Sử dụng ngay sau khi mở nắp, ngon hơn khi ướp lạnh.</p>
-        <button class="btn" onclick="event.stopPropagation(); addToZalo('Yến 6')">📩 Mua qua Zalo</button>
+      <div id="d5" class="details">
+        <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+        <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
+        <p><strong>Hướng dẫn:</strong> Ngon hơn khi ướp lạnh. Dùng ngay sau khi mở.</p>
       </div>
+      <button class="btn" onclick="sendZalo('Yến 6')">📩 Mua ngay qua Zalo</button>
     </div>
   </div>
 
 </div>
 
 <script>
-function toggleDetails(id) {
-  const el = document.getElementById(id);
-  el.classList.toggle("active");
+function toggleDetail(id) {
+  document.getElementById(id).classList.toggle("active");
 }
-
-function addToZalo(product) {
-  const msg = `Xin chào, tôi muốn đặt: ${product}\nDung tích: 100ml\nVị ngọt: Ít ngọt`;
+function sendZalo(name) {
+  const msg = `Xin chào, tôi muốn đặt: ${name}\nDung tích: 100ml\nVị: Ít ngọt`;
   const link = "https://zalo.me/0942244994?text=" + encodeURIComponent(msg);
   window.open(link, "_blank");
 }
