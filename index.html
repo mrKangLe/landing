@@ -2,163 +2,206 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yến chưng - Hoạt động đúng trên GitHub Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bộ Sưu Tập Yến Chưng Mùa Hè</title>
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fffbe9; color: #003c5c; }
-    header { background: #fff3da; padding: 30px 20px; text-align: center; }
-    h1 { margin: 0; color: #ff8000; }
-
-    .container { max-width: 1000px; margin: auto; padding: 20px; }
-    .row { display: flex; flex-wrap: wrap; gap: 20px; }
-
-    .product {
-      background: #fff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      flex: 1 1 100%; max-width: 100%; display: flex; flex-direction: column; overflow: hidden;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fefbe9;
+      color: #003c5c;
     }
-
-    .product img { width: 100%; border-radius: 16px 16px 0 0; object-fit: cover; }
-    .info { padding: 16px; }
-    .info h3 { margin: 0; font-size: 18px; color: #d35400; cursor: pointer; }
-
-    .detail {
-      display: none; background: #fffaf0; margin-top: 10px;
-      padding: 12px; border-radius: 8px; font-size: 14px;
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: #fff9e5;
+      color: #003c5c;
     }
-
-    .detail.active { display: block; }
-
-    select, .btn {
-      width: 100%; margin-top: 12px; padding: 10px;
-      border-radius: 8px; font-size: 15px;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+      color: #ff8000;
     }
-
+    h2 {
+      margin-top: 0;
+    }
+    .products {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 280px;
+      text-align: center;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+      padding: 15px;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
     .btn {
-      background: #ff8000; color: white; border: none; font-weight: bold; cursor: pointer;
+      background: #ff8000;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #e36e00;
+    }
+    .footer {
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .footer button {
+      margin: 8px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .zalo { background: #00c186; color: #fff; }
+    .messenger { background: #0078ff; color: #fff; }
+
+    #cart-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #fff;
+      border: 2px solid #ff8000;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      z-index: 999;
     }
 
-    .btn:hover { background: #e36e00; }
-
-    #cart {
-      background: #fff4d1; padding: 16px; margin-top: 30px; border-radius: 12px;
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
     }
 
-    .cart-item {
-      border-bottom: 1px solid #ddd; padding: 8px 0;
-      display: flex; justify-content: space-between; align-items: center;
+    .popup-content {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+      animation: fadeIn 0.3s ease-in-out;
     }
 
-    .remove-btn {
-      background: none; border: none; color: red;
-      font-weight: bold; cursor: pointer; font-size: 18px;
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
     }
 
-    .cart-total {
-      font-weight: bold; margin-top: 10px; color: #c0392b;
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
     }
 
-    @media(min-width: 768px) {
-      .product { flex: 1 1 calc(50% - 20px); max-width: calc(50% - 20px); }
+    @media (min-width: 600px) {
+      .row {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>BỘ SƯU TẬP YẾN CHƯNG – CHẠY TRÊN GITHUB PAGES</h1>
+  <h2>BỘ SƯU TẬP</h2>
+  <h1>YẾN CHƯNG MÙA HÈ</h1>
+  <p>6 vị mát lành, trẻ trung – Nạp năng lượng mùa nắng</p>
 </header>
 
-<div class="container">
-  <div class="row" id="product-list"></div>
+<section class="products">
+  <div class="row">
+    <div class="card">
+      <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp" onclick="showPopup('popup-sen')">
+      <h3 onclick="showPopup('popup-sen')">Yến chưng hạt sen, táo đỏ, lá nếp</h3>
+      <p>100ml – 59.000đ</p>
+      <button class="btn" onclick="addToCart('Yến hạt sen, táo đỏ, lá nếp')">Mua ngay</button>
+    </div>
+  </div>
+</section>
 
-  <div id="cart">
-    <h2>🛒 Giỏ hàng</h2>
-    <div id="cart-items"></div>
-    <div class="cart-total" id="cart-total">Tổng: 0đ</div>
-    <button class="btn" onclick="sendOrder()">📩 Gửi đơn qua Zalo</button>
+<!-- POPUP -->
+<div id="popup-sen" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup-sen')">&times;</span>
+    <h2>Yến chưng hạt sen, táo đỏ, lá nếp</h2>
+    <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá nếp, đường phèn.</p>
+    <p><strong>Lợi ích:</strong> An thần, bổ huyết, hỗ trợ giấc ngủ.</p>
+    <p><strong>Dành cho:</strong> Người hay mất ngủ, stress, phụ nữ sau sinh.</p>
+    <p><strong>Lưu ý:</strong> Không dùng cho người tiểu đường nặng.</p>
   </div>
 </div>
 
+<div id="cart-popup">Đã thêm vào giỏ hàng!</div>
+
+<section class="footer">
+  <h3>Liên hệ tư vấn nhanh:</h3>
+  <button class="zalo" onclick="window.open('https://zalo.me/0942244994')">Chat Zalo</button>
+  <button class="messenger" onclick="window.open('https://m.me/YenOcean')">Messenger</button>
+</section>
+
 <script>
-let cart = [];
+  function addToCart(product) {
+    const popup = document.getElementById("cart-popup");
+    popup.innerText = `${product} đã được thêm vào giỏ hàng!`;
+    popup.style.display = "block";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 2500);
+  }
 
-window.onload = function() {
-  const products = Array.from({length: 6}, (_, i) => ({
-    name: `Yến ${i+1}`,
-    id: i
-  }));
+  function showPopup(id) {
+    document.getElementById(id).style.display = 'flex';
+  }
 
-  const container = document.getElementById("product-list");
-  container.innerHTML = products.map(p => `
-    <div class="product">
-      <img src="yenchung-real.png" alt="${p.name}">
-      <div class="info">
-        <h3 id="toggle-${p.id}">${p.name}</h3>
-        <div id="detail-${p.id}" class="detail">
-          <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
-          <p><strong>Công dụng:</strong> An thần, bổ dưỡng, tăng đề kháng.</p>
-        </div>
-        <select id="size${p.id}">
-          <option value="55">75ml – 55.000đ</option>
-          <option value="85" selected>100ml – 85.000đ</option>
-          <option value="110">150ml – 110.000đ</option>
-          <option value="170">200ml – 170.000đ</option>
-        </select>
-        <button class="btn" id="add-${p.id}">🛒 Thêm vào giỏ hàng</button>
-      </div>
-    </div>`).join("");
-
-  products.forEach(p => {
-    document.getElementById(`toggle-${p.id}`).onclick = () => {
-      document.getElementById(`detail-${p.id}`).classList.toggle("active");
-    };
-    document.getElementById(`add-${p.id}`).onclick = () => {
-      const select = document.getElementById("size" + p.id);
-      const label = select.options[select.selectedIndex].text;
-      const price = parseInt(select.value);
-      cart.push({ name: p.name, label, price });
-      renderCart();
-    };
-  });
-};
-
-function renderCart() {
-  const area = document.getElementById("cart-items");
-  const totalText = document.getElementById("cart-total");
-  area.innerHTML = "";
-
-  let total = 0;
-  cart.forEach((item, i) => {
-    area.innerHTML += `
-      <div class="cart-item">
-        <span>${i+1}. ${item.name} – ${item.label}</span>
-        <span>${item.price}.000đ <button class="remove-btn" onclick="removeFromCart(${i})">×</button></span>
-      </div>`;
-    total += item.price;
-  });
-
-  totalText.innerText = `Tổng: ${total}.000đ`;
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  renderCart();
-}
-
-function sendOrder() {
-  if (cart.length === 0) return alert("Bạn chưa thêm sản phẩm nào!");
-  let message = "Xin chào, tôi muốn đặt:
-";
-  let total = 0;
-  cart.forEach((item, i) => {
-    message += `${i+1}. ${item.name} – ${item.label} : ${item.price}.000đ
-`;
-    total += item.price;
-  });
-  message += `Tổng cộng: ${total}.000đ`;
-  window.open("https://zalo.me/0942244994?text=" + encodeURIComponent(message), "_blank");
-}
+  function closePopup(id) {
+    document.getElementById(id).style.display = 'none';
+  }
 </script>
 
 </body>
