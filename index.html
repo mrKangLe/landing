@@ -6,144 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bộ Sưu Tập Yến Chưng Mùa Hè</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fefbe9;
-      color: #003c5c;
-    }
-    header {
-      text-align: center;
-      padding: 40px 20px;
-      background: #fff9e5;
-      color: #003c5c;
-    }
-    h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-      color: #ff8000;
-    }
-    h2 {
-      margin-top: 0;
-    }
-    .products {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-    }
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 280px;
-      text-align: center;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.05);
-      padding: 15px;
-      transition: transform 0.2s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-    .btn {
-      background: #ff8000;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #e36e00;
-    }
-    .footer {
-      text-align: center;
-      padding: 30px 10px;
-    }
-    .footer button {
-      margin: 8px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fefbe9; color: #003c5c; }
+    header { text-align: center; padding: 40px 20px; background: #fff9e5; color: #003c5c; }
+    h1 { font-size: 2em; margin-bottom: 10px; color: #ff8000; }
+    h2 { margin-top: 0; }
+    .products { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+    .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+    .card { background: #fff; border-radius: 12px; width: 100%; max-width: 280px; text-align: center; box-shadow: 0 5px 10px rgba(0,0,0,0.05); padding: 15px; transition: transform 0.2s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; cursor: pointer; }
+    .btn { background: #ff8000; color: white; border: none; padding: 10px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .btn:hover { background: #e36e00; }
+    .footer { text-align: center; padding: 30px 10px; }
+    .footer button { margin: 8px; padding: 10px 20px; border-radius: 20px; border: none; font-weight: bold; cursor: pointer; }
     .zalo { background: #00c186; color: #fff; }
     .messenger { background: #0078ff; color: #fff; }
-
-    #cart-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #fff;
-      border: 2px solid #ff8000;
-      padding: 15px;
-      border-radius: 10px;
-      display: none;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-
-    .popup {
-      display: none;
-      position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .popup-content {
-      background-color: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-      position: relative;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #999;
-    }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.95);}
-      to {opacity: 1; transform: scale(1);}
-    }
-
-    @media (min-width: 600px) {
-      .row {
-        flex-direction: row;
-      }
-    }
+    #cart-popup { position: fixed; bottom: 20px; right: 20px; background: #fff; border: 2px solid #ff8000; padding: 15px; border-radius: 10px; display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; }
+    label { display: block; margin-top: 5px; font-weight: bold; }
+    select { padding: 5px; width: 100%; margin-bottom: 10px; border-radius: 6px; }
+    .popup { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+    .popup-content { background-color: #fff; padding: 25px; border-radius: 12px; width: 90%; max-width: 400px; box-shadow: 0 0 20px rgba(0,0,0,0.2); position: relative; animation: fadeIn 0.3s ease-in-out; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 24px; font-weight: bold; cursor: pointer; color: #999; }
+    @keyframes fadeIn { from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);} }
+    @media (min-width: 600px) { .row { flex-direction: row; } }
   </style>
 </head>
 <body>
@@ -156,24 +41,195 @@
 
 <section class="products">
   <div class="row">
-    <div class="card">
-      <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp" onclick="showPopup('popup-sen')">
-      <h3>Yến chưng hạt sen, táo đỏ, lá nếp</h3>
-      <p>100ml – 59.000đ</p>
-      <button class="btn" onclick="addToCart('Yến hạt sen, táo đỏ, lá nếp')">Mua ngay</button>
-    </div>
-  </div>
-</section>
 
-<!-- POPUP -->
-<div id="popup-sen" class="popup">
+    <div class="card">
+      <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp" onclick="showPopup('popup0')">
+      <h3>Yến chưng hạt sen, táo đỏ, lá nếp</h3>
+      <label for="size0">Dung tích:</label>
+      <select id="size0">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet0">Vị ngọt:</label>
+      <select id="sweet0">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến chưng hạt sen, táo đỏ, lá nếp', 'size0', 'sweet0')">Mua ngay</button>
+    </div>
+
+
+    <div class="card">
+      <img src="https://i.imgur.com/dEuK6ZX.png" alt="Yến Táo Dứa" onclick="showPopup('popup1')">
+      <h3>Yến Táo Dứa</h3>
+      <label for="size1">Dung tích:</label>
+      <select id="size1">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet1">Vị ngọt:</label>
+      <select id="sweet1">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến Táo Dứa', 'size1', 'sweet1')">Mua ngay</button>
+    </div>
+
+
+    <div class="card">
+      <img src="https://i.imgur.com/5Wf3XcI.png" alt="Yến Dừa Non" onclick="showPopup('popup2')">
+      <h3>Yến Dừa Non</h3>
+      <label for="size2">Dung tích:</label>
+      <select id="size2">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet2">Vị ngọt:</label>
+      <select id="sweet2">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến Dừa Non', 'size2', 'sweet2')">Mua ngay</button>
+    </div>
+
+
+    <div class="card">
+      <img src="https://i.imgur.com/fHyv9Xp.png" alt="Yến Cam Mật" onclick="showPopup('popup3')">
+      <h3>Yến Cam Mật</h3>
+      <label for="size3">Dung tích:</label>
+      <select id="size3">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet3">Vị ngọt:</label>
+      <select id="sweet3">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến Cam Mật', 'size3', 'sweet3')">Mua ngay</button>
+    </div>
+
+
+    <div class="card">
+      <img src="https://i.imgur.com/UMCGJS1.png" alt="Yến Lá Dứa" onclick="showPopup('popup4')">
+      <h3>Yến Lá Dứa</h3>
+      <label for="size4">Dung tích:</label>
+      <select id="size4">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet4">Vị ngọt:</label>
+      <select id="sweet4">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến Lá Dứa', 'size4', 'sweet4')">Mua ngay</button>
+    </div>
+
+
+    <div class="card">
+      <img src="https://i.imgur.com/bPP14Wh.png" alt="Yến Vải Tươi" onclick="showPopup('popup5')">
+      <h3>Yến Vải Tươi</h3>
+      <label for="size5">Dung tích:</label>
+      <select id="size5">
+        <option>75ml</option>
+        <option selected>100ml</option>
+        <option>150ml</option>
+      </select>
+      <label for="sweet5">Vị ngọt:</label>
+      <select id="sweet5">
+        <option>Không đường</option>
+        <option selected>Ít ngọt</option>
+        <option>Vừa ngọt</option>
+      </select>
+      <p>Giá từ: 59.000đ</p>
+      <button class="btn" onclick="sendToZalo('Yến Vải Tươi', 'size5', 'sweet5')">Mua ngay</button>
+    </div>
+</div></section>
+
+<!-- Popup 0 -->
+<div id="popup0" class="popup">
   <div class="popup-content">
-    <span class="close-btn" onclick="closePopup('popup-sen')">&times;</span>
+    <span class="close-btn" onclick="closePopup('popup0')">&times;</span>
     <h2>Yến chưng hạt sen, táo đỏ, lá nếp</h2>
-    <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá nếp, đường phèn.</p>
-    <p><strong>Lợi ích:</strong> An thần, bổ huyết, hỗ trợ giấc ngủ.</p>
-    <p><strong>Dành cho:</strong> Người hay mất ngủ, stress, phụ nữ sau sinh.</p>
-    <p><strong>Lưu ý:</strong> Không dùng cho người tiểu đường nặng.</p>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
+  </div>
+</div>
+
+
+<!-- Popup 1 -->
+<div id="popup1" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
+    <h2>Yến Táo Dứa</h2>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
+  </div>
+</div>
+
+
+<!-- Popup 2 -->
+<div id="popup2" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup2')">&times;</span>
+    <h2>Yến Dừa Non</h2>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
+  </div>
+</div>
+
+
+<!-- Popup 3 -->
+<div id="popup3" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup3')">&times;</span>
+    <h2>Yến Cam Mật</h2>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
+  </div>
+</div>
+
+
+<!-- Popup 4 -->
+<div id="popup4" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup4')">&times;</span>
+    <h2>Yến Lá Dứa</h2>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
+  </div>
+</div>
+
+
+<!-- Popup 5 -->
+<div id="popup5" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup('popup5')">&times;</span>
+    <h2>Yến Vải Tươi</h2>
+    <p><strong>Thành phần:</strong> Yến sào tươi, nguyên liệu tự nhiên.</p>
+    <p><strong>Công dụng:</strong> Bổ dưỡng, tăng sức đề kháng.</p>
+    <p><strong>Lưu ý:</strong> Dùng ngay sau khi mở nắp. Bảo quản mát.</p>
   </div>
 </div>
 
@@ -186,22 +242,21 @@
 </section>
 
 <script>
-  function addToCart(product) {
-    const popup = document.getElementById("cart-popup");
-    popup.innerText = `${product} đã được thêm vào giỏ hàng!`;
-    popup.style.display = "block";
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 2500);
-  }
-
-  function showPopup(id) {
-    document.getElementById(id).style.display = 'flex';
-  }
-
-  function closePopup(id) {
-    document.getElementById(id).style.display = 'none';
-  }
+function showPopup(id) {
+  document.getElementById(id).style.display = 'flex';
+}
+function closePopup(id) {
+  document.getElementById(id).style.display = 'none';
+}
+function sendToZalo(product, sizeId, sweetId) {
+  const size = document.getElementById(sizeId).value;
+  const sweet = document.getElementById(sweetId).value;
+  const message = encodeURIComponent(`Xin chào, tôi muốn đặt:
+- ${product}
+- Dung tích: ${size}
+- Vị: ${sweet}`);
+  window.open(`https://zalo.me/0942244994?text=${message}`, '_blank');
+}
 </script>
 
 </body>
