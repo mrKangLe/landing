@@ -86,9 +86,20 @@
       font-weight: bold;
       cursor: pointer;
     }
-    .zalo { background: #50b848; color: white; }
-    .messenger { background: #1877f2; color: white; }
-
+    .zalo {
+      background: #50b848;
+      color: white;
+    }
+    .zalo:hover {
+      background: #3da03f;
+    }
+    .messenger {
+      background: #1877f2;
+      color: white;
+    }
+    .messenger:hover {
+      background: #0f5cd7;
+    }
     .popup {
       display: none;
       position: fixed;
@@ -105,6 +116,28 @@
     .popup.active {
       display: block;
     }
+    .chat-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+    .chat-float button {
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .chat-zalo { background-color: #50b848; }
+    .chat-mess { background-color: #1877f2; }
 
     @media screen and (max-width: 768px) {
       .card {
@@ -138,17 +171,21 @@
       <p>Giá từ 59.000đ</p>
       <button class="buy-btn" onclick="showPopup('Yến Chanh Sả')">Mua Ngay</button>
     </div>
-    <!-- Các thẻ .card còn lại cũng tương tự, Mật có thể copy thêm nếu cần -->
   </section>
 
   <div class="contact">
     <p>Liên hệ tư vấn nhanh:</p>
-    <button class="zalo">Chat Zalo</button>
-    <button class="messenger">Messenger</button>
+    <button class="zalo" onclick="openZalo()">Chat Zalo</button>
+    <button class="messenger" onclick="openMessenger()">Messenger</button>
   </div>
 
   <div class="popup" id="popup">
     <p id="popup-message">Đã thêm sản phẩm vào giỏ hàng!</p>
+  </div>
+
+  <div class="chat-float">
+    <button class="chat-zalo" onclick="openZalo()">Z</button>
+    <button class="chat-mess" onclick="openMessenger()">M</button>
   </div>
 
   <script>
@@ -160,6 +197,14 @@
       setTimeout(() => {
         popup.classList.remove('active');
       }, 2000);
+    }
+
+    function openZalo() {
+      window.open('https://zalo.me/0942244994', '_blank');
+    }
+
+    function openMessenger() {
+      window.open('https://m.me/yourpage', '_blank');
     }
   </script>
 </body>
