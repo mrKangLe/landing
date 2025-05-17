@@ -159,6 +159,79 @@
     <div class="card">
       <img src="yenchung-real.png" alt="Yến chưng hạt sen, táo đỏ, lá nếp" onclick="showPopup('popup-sen')">
       <h3 onclick="showPopup('popup-sen')">Yến chưng hạt sen, táo đỏ, lá nếp</h3>
+  <label for="size-select"><strong>Chọn dung tích:</strong></label>
+  <select id="size-select" style="width: 100%; padding: 8px; margin-top: 6px; border-radius: 6px;">
+    <option value="55">75ml – 55.000đ</option>
+    <option value="85" selected>100ml – 85.000đ</option>
+    <option value="110">150ml – 110.000đ</option>
+    <option value="170">200ml – 170.000đ</option>
+  </select>
+  <p style="margin-top: 10px;"><strong>Giá:</strong> <span id="price-display">85.000đ</span></p>
+  <button class="btn" onclick="addToCart()">🛒 Thêm vào giỏ hàng</button>
+
+  <div id="cart" style="margin-top: 30px; background: #fff4d1; padding: 16px; border-radius: 12px;">
+    <h2>🛍️ Giỏ hàng</h2>
+    <div id="cart-items"></div>
+    <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
+    <button class="btn" onclick="sendOrder()">📩 Gửi đơn qua Zalo</button>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart() {
+      const select = document.getElementById("size-select");
+      const label = select.options[select.selectedIndex].text;
+      const price = parseInt(select.value);
+      cart.push({ name: "Yến chưng hạt sen, táo đỏ, lá nếp", label, price });
+      renderCart();
+    }
+
+    function renderCart() {
+      const area = document.getElementById("cart-items");
+      const totalText = document.getElementById("cart-total");
+      area.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, i) => {
+        area.innerHTML += `
+          <div class="cart-item" style="margin-bottom: 6px;">
+            ${i+1}. ${item.name} – ${item.label}: ${item.price}.000đ
+            <button onclick="removeFromCart(${i})" style="color:red; border:none; background:none; font-weight:bold;">×</button>
+          </div>`;
+        total += item.price;
+      });
+      totalText.textContent = total + ".000đ";
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function sendOrder() {
+      if (cart.length === 0) return alert("Bạn chưa chọn sản phẩm nào!");
+      let msg = "Xin chào, tôi muốn đặt:
+";
+      let total = 0;
+      cart.forEach((item, i) => {
+        msg += `${i+1}. ${item.name} – ${item.label}: ${item.price}.000đ
+`;
+        total += item.price;
+      });
+      msg += `Tổng cộng: ${total}.000đ`;
+      window.open("https://zalo.me/0942244994?text=" + encodeURIComponent(msg), "_blank");
+    }
+  </script>
+
+
+  <script>
+    const sizeSelect = document.getElementById('size-select');
+    const priceDisplay = document.getElementById('price-display');
+    sizeSelect.onchange = function() {
+      priceDisplay.textContent = sizeSelect.options[sizeSelect.selectedIndex].text.split('–')[1].trim();
+    };
+  </script>
+
       <p>100ml – 59.000đ</p>
       <button class="btn" onclick="addToCart('Yến hạt sen, táo đỏ, lá nếp')">Mua ngay</button>
     </div>
