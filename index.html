@@ -79,7 +79,12 @@
     }
 
     @media (max-width: 768px) {
-      .grid { grid-template-columns: repeat(2, 1fr); }
+      .grid { grid-template-columns: 1fr; }
+      .product-card img {
+        aspect-ratio: 1/1.1;
+        height: auto;
+        max-height: none;
+      }
     }
   </style>
 </head>
