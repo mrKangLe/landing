@@ -310,6 +310,9 @@ function addToCart(i) {
   const price = parseInt(select.value);
   cart.push({ name: 
   showAddPopup();
+  updateCartCount();
+  renderCart();
+  showAddPopup();
   updateCartCount();"Yến chưng " + i, label, price });
   renderCart();
 }
