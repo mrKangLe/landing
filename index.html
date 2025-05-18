@@ -339,6 +339,7 @@ transform:translate(-50%,-50%); background:white; padding:16px; border-radius:10
 </div>
 
 <script>
+
 let cart = [];
 
 function addToCart(i) {
@@ -350,8 +351,6 @@ function addToCart(i) {
   updateCartCount();
   renderCart();
 }
-
-
 
 function renderCart() {
   const area = document.getElementById("cart-items");
@@ -398,6 +397,25 @@ function changeQty(key, delta) {
   }
   renderCart();
   updateCartCount();
+}
+
+function toggleCartPopup(force) {
+  const popup = document.getElementById("cart-popup");
+  if (!popup) return;
+  if (force === "show") popup.style.display = "block";
+  else if (force === "hide") popup.style.display = "none";
+  else popup.style.display = popup.style.display === "block" ? "none" : "block";
+}
+
+function updateCartCount() {
+  document.getElementById("cart-count").innerText = cart.length;
+}
+
+function showAddPopup() {
+  const pop = document.getElementById("popup-add");
+  if (!pop) return;
+  pop.style.display = "block";
+  setTimeout(() => pop.style.display = "none", 2000);
 }
 
 
