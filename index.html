@@ -80,6 +80,31 @@
   <h1>YẾN CHƯNG 11 VỊ</h1>
 </header>
 
+<section style="display:flex; flex-wrap:wrap; background:linear-gradient(to right, #fffbe1, #fff3cc); padding:40px 5%;">
+  <div style="flex:1 1 260px; text-align:center;">
+    <img src="logo.png" alt="Yến Ocean" style="width:160px; max-width:100%;" />
+  </div>
+  <div style="flex:2 1 500px; display:flex; flex-direction:column; gap:16px;">
+    <div style="background:white; border-left:6px solid #f57c00; padding:16px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+      <h3 style="margin:0 0 8px; font-size:18px; color:#d35400;">Combo 1 – An thần, Ngủ ngon <span style="background:#f44336;color:white;font-size:12px;padding:2px 8px;border-radius:20px;margin-left:10px;">Tiết kiệm 10%</span></h3>
+      <p>Yến Hạt sen + Yến Táo đỏ Long nhãn (100ml)</p>
+      <p style="font-weight:bold; color:#c0392b;">169.000đ</p>
+    </div>
+    <div style="background:white; border-left:6px solid #f57c00; padding:16px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+      <h3 style="margin:0 0 8px; font-size:18px; color:#d35400;">Combo 2 – Đẹp da, Sáng mắt <span style="background:#f44336;color:white;font-size:12px;padding:2px 8px;border-radius:20px;margin-left:10px;">Tiết kiệm 8%</span></h3>
+      <p>Yến Safron + Chia + Dừa kỷ tử (75ml)</p>
+      <p style="font-weight:bold; color:#c0392b;">179.000đ</p>
+    </div>
+    <div style="background:white; border-left:6px solid #f57c00; padding:16px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
+      <h3 style="margin:0 0 8px; font-size:18px; color:#d35400;">Combo 3 – Tăng đề kháng <span style="background:#f44336;color:white;font-size:12px;padding:2px 8px;border-radius:20px;margin-left:10px;">Tiết kiệm 12%</span></h3>
+      <p>Yến Đông Trùng + Gừng (100ml)</p>
+      <p style="font-weight:bold; color:#c0392b;">199.000đ</p>
+    </div>
+  </div>
+</section>
+
+
+
 <section style="padding:20px; background:#fefae0;">
   <h2 style="color:#d35400;">COMBO ƯU ĐÃI</h2>
   <div style="display:flex; flex-direction:column; gap:16px;">
@@ -102,28 +127,6 @@
 </section>
 
 
-<section class="container">
-  <div class="logo-side">
-    <img src="logo.png" alt="Yến Ocean" />
-  </div>
-  <div class="combo-side">
-    <div class="combo-card">
-      <h3>Combo 1 – An thần, Ngủ ngon <span class="badge">Tiết kiệm 10%</span></h3>
-      <p>Yến Hạt sen + Yến Táo đỏ Long nhãn (100ml)</p>
-      <p class="price">169.000đ</p>
-    </div>
-    <div class="combo-card">
-      <h3>Combo 2 – Đẹp da, Sáng mắt <span class="badge">Tiết kiệm 8%</span></h3>
-      <p>Yến Safron + Chia + Dừa kỷ tử (75ml)</p>
-      <p class="price">179.000đ</p>
-    </div>
-    <div class="combo-card">
-      <h3>Combo 3 – Tăng đề kháng <span class="badge">Tiết kiệm 12%</span></h3>
-      <p>Yến Đông Trùng + Gừng (100ml)</p>
-      <p class="price">199.000đ</p>
-    </div>
-  </div>
-</section>
 <div class="grid">
 
   <div class="product-card">
@@ -361,7 +364,6 @@ transform:translate(-50%,-50%); background:white; padding:16px; border-radius:10
 </div>
 
 <script>
-
 let cart = [];
 
 function addToCart(i) {
@@ -373,6 +375,8 @@ function addToCart(i) {
   updateCartCount();
   renderCart();
 }
+
+
 
 function renderCart() {
   const area = document.getElementById("cart-items");
@@ -419,25 +423,6 @@ function changeQty(key, delta) {
   }
   renderCart();
   updateCartCount();
-}
-
-function toggleCartPopup(force) {
-  const popup = document.getElementById("cart-popup");
-  if (!popup) return;
-  if (force === "show") popup.style.display = "block";
-  else if (force === "hide") popup.style.display = "none";
-  else popup.style.display = popup.style.display === "block" ? "none" : "block";
-}
-
-function updateCartCount() {
-  document.getElementById("cart-count").innerText = cart.length;
-}
-
-function showAddPopup() {
-  const pop = document.getElementById("popup-add");
-  if (!pop) return;
-  pop.style.display = "block";
-  setTimeout(() => pop.style.display = "none", 2000);
 }
 
 
