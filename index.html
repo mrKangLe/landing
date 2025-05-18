@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến Chưng - Đặt Hàng Full</title>
+  <title>Yến Chưng - 11 Sản Phẩm</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fffbe9; padding-bottom: 240px; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fffbe9; padding-bottom: 200px; }
     header { text-align: center; background: #fff3da; padding: 30px 20px; }
     h1 { color: #ff8000; margin: 0; }
-
     .container { max-width: 1280px; margin: auto; padding: 20px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
 
@@ -40,39 +39,28 @@
       width: 100%;
     }
 
-    .popup {
-      display: none; position: fixed; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff; padding: 20px; border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      width: 90%; max-width: 400px; z-index: 1000;
+    .popup { display: none; position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); background: #fff; padding: 20px; border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2); width: 90%; max-width: 400px; z-index: 1000;
     }
 
     .popup h4 { margin-top: 0; color: #d35400; }
-    .popup-close {
-      position: absolute; top: 8px; right: 12px;
+    .popup-close { position: absolute; top: 8px; right: 12px;
       cursor: pointer; font-size: 18px; color: red; font-weight: bold;
     }
 
-    .cart-box {
-      background: #fff4d1;
-      margin-top: 40px;
+    .cart-box, .form-box {
+      background: white;
       padding: 16px;
       border-radius: 12px;
+      margin-top: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .cart-item {
       margin-bottom: 8px;
       border-bottom: 1px dashed #ccc;
       padding-bottom: 4px;
-    }
-
-    .form-box {
-      background: white;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      margin-top: 20px;
     }
 
     .popup-confirm {
@@ -95,17 +83,13 @@
   </style>
 </head>
 <body>
-
-<header>
-  <h1>ĐẶT HÀNG YẾN CHƯNG - COMBO FULL</h1>
-</header>
-
+<header><h1>ĐẶT HÀNG YẾN CHƯNG - 11 SẢN PHẨM</h1></header>
 <div class="container">
-  <div class="grid">
+<div class="grid">
 
     <div class="product-card">
-      <img src="yenchung1.png" alt="Yến 1" onclick="showPopup(1)">
-      <h3 onclick="showPopup(1)">Yến chưng đặc biệt 1</h3>
+      <img src="Image (1).png" alt="Yến 1" onclick="showPopup(1)">
+      <h3 onclick="showPopup(1)">Yến chưng 1</h3>
       <select id="size1">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -116,14 +100,13 @@
     </div>
     <div class="popup" id="popup1">
       <div class="popup-close" onclick="hidePopup(1)">×</div>
-      <h4>Yến chưng đặc biệt 1</h4>
+      <h4>Yến chưng 1</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung2.png" alt="Yến 2" onclick="showPopup(2)">
-      <h3 onclick="showPopup(2)">Yến chưng đặc biệt 2</h3>
+      <img src="Image (2).png" alt="Yến 2" onclick="showPopup(2)">
+      <h3 onclick="showPopup(2)">Yến chưng 2</h3>
       <select id="size2">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -134,14 +117,13 @@
     </div>
     <div class="popup" id="popup2">
       <div class="popup-close" onclick="hidePopup(2)">×</div>
-      <h4>Yến chưng đặc biệt 2</h4>
+      <h4>Yến chưng 2</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung3.png" alt="Yến 3" onclick="showPopup(3)">
-      <h3 onclick="showPopup(3)">Yến chưng đặc biệt 3</h3>
+      <img src="Image (3).png" alt="Yến 3" onclick="showPopup(3)">
+      <h3 onclick="showPopup(3)">Yến chưng 3</h3>
       <select id="size3">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -152,14 +134,13 @@
     </div>
     <div class="popup" id="popup3">
       <div class="popup-close" onclick="hidePopup(3)">×</div>
-      <h4>Yến chưng đặc biệt 3</h4>
+      <h4>Yến chưng 3</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung4.png" alt="Yến 4" onclick="showPopup(4)">
-      <h3 onclick="showPopup(4)">Yến chưng đặc biệt 4</h3>
+      <img src="Image (4).png" alt="Yến 4" onclick="showPopup(4)">
+      <h3 onclick="showPopup(4)">Yến chưng 4</h3>
       <select id="size4">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -170,14 +151,13 @@
     </div>
     <div class="popup" id="popup4">
       <div class="popup-close" onclick="hidePopup(4)">×</div>
-      <h4>Yến chưng đặc biệt 4</h4>
+      <h4>Yến chưng 4</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung5.png" alt="Yến 5" onclick="showPopup(5)">
-      <h3 onclick="showPopup(5)">Yến chưng đặc biệt 5</h3>
+      <img src="Image (5).png" alt="Yến 5" onclick="showPopup(5)">
+      <h3 onclick="showPopup(5)">Yến chưng 5</h3>
       <select id="size5">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -188,14 +168,13 @@
     </div>
     <div class="popup" id="popup5">
       <div class="popup-close" onclick="hidePopup(5)">×</div>
-      <h4>Yến chưng đặc biệt 5</h4>
+      <h4>Yến chưng 5</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung6.png" alt="Yến 6" onclick="showPopup(6)">
-      <h3 onclick="showPopup(6)">Yến chưng đặc biệt 6</h3>
+      <img src="Image (6).png" alt="Yến 6" onclick="showPopup(6)">
+      <h3 onclick="showPopup(6)">Yến chưng 6</h3>
       <select id="size6">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -206,14 +185,13 @@
     </div>
     <div class="popup" id="popup6">
       <div class="popup-close" onclick="hidePopup(6)">×</div>
-      <h4>Yến chưng đặc biệt 6</h4>
+      <h4>Yến chưng 6</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung7.png" alt="Yến 7" onclick="showPopup(7)">
-      <h3 onclick="showPopup(7)">Yến chưng đặc biệt 7</h3>
+      <img src="Image (7).png" alt="Yến 7" onclick="showPopup(7)">
+      <h3 onclick="showPopup(7)">Yến chưng 7</h3>
       <select id="size7">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -224,14 +202,13 @@
     </div>
     <div class="popup" id="popup7">
       <div class="popup-close" onclick="hidePopup(7)">×</div>
-      <h4>Yến chưng đặc biệt 7</h4>
+      <h4>Yến chưng 7</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung8.png" alt="Yến 8" onclick="showPopup(8)">
-      <h3 onclick="showPopup(8)">Yến chưng đặc biệt 8</h3>
+      <img src="Image (8).png" alt="Yến 8" onclick="showPopup(8)">
+      <h3 onclick="showPopup(8)">Yến chưng 8</h3>
       <select id="size8">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -242,14 +219,13 @@
     </div>
     <div class="popup" id="popup8">
       <div class="popup-close" onclick="hidePopup(8)">×</div>
-      <h4>Yến chưng đặc biệt 8</h4>
+      <h4>Yến chưng 8</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung9.png" alt="Yến 9" onclick="showPopup(9)">
-      <h3 onclick="showPopup(9)">Yến chưng đặc biệt 9</h3>
+      <img src="Image (9).png" alt="Yến 9" onclick="showPopup(9)">
+      <h3 onclick="showPopup(9)">Yến chưng 9</h3>
       <select id="size9">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -260,14 +236,13 @@
     </div>
     <div class="popup" id="popup9">
       <div class="popup-close" onclick="hidePopup(9)">×</div>
-      <h4>Yến chưng đặc biệt 9</h4>
+      <h4>Yến chưng 9</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
     <div class="product-card">
-      <img src="yenchung10.png" alt="Yến 10" onclick="showPopup(10)">
-      <h3 onclick="showPopup(10)">Yến chưng đặc biệt 10</h3>
+      <img src="Image (10).png" alt="Yến 10" onclick="showPopup(10)">
+      <h3 onclick="showPopup(10)">Yến chưng 10</h3>
       <select id="size10">
         <option value="55">75ml – 55.000đ</option>
         <option value="85" selected>100ml – 85.000đ</option>
@@ -278,95 +253,86 @@
     </div>
     <div class="popup" id="popup10">
       <div class="popup-close" onclick="hidePopup(10)">×</div>
-      <h4>Yến chưng đặc biệt 10</h4>
+      <h4>Yến chưng 10</h4>
       <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
       <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
     </div>
-    
-  </div>
-
-  <div class="cart-box">
-    <h2>🛒 Giỏ hàng</h2>
-    <div id="cart-items"></div>
-    <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
-  </div>
-
-  <div class="form-box">
-    <h3>📩 Thông tin đặt hàng</h3>
-    <label for="name">Họ và tên:</label>
-    <input type="text" id="name" placeholder="Nhập họ tên" />
-    <label for="phone">Số điện thoại:</label>
-    <input type="tel" id="phone" placeholder="Nhập SĐT" />
-    <label for="note">Ghi chú thêm:</label>
-    <input type="text" id="note" placeholder="Ví dụ: Giao sau 17h, ít ngọt..." />
-    <button class="btn" onclick="sendOrder()">📤 Gửi đơn hàng</button>
-  </div>
+    <div class="product-card">
+      <img src="Image (11).png" alt="Yến 11" onclick="showPopup(11)">
+      <h3 onclick="showPopup(11)">Yến chưng 11</h3>
+      <select id="size11">
+        <option value="55">75ml – 55.000đ</option>
+        <option value="85" selected>100ml – 85.000đ</option>
+        <option value="110">150ml – 110.000đ</option>
+        <option value="170">200ml – 170.000đ</option>
+      </select>
+      <button class="btn" onclick="addToCart(11)">🛒 Mua ngay</button>
+    </div>
+    <div class="popup" id="popup11">
+      <div class="popup-close" onclick="hidePopup(11)">×</div>
+      <h4>Yến chưng 11</h4>
+      <p><strong>Thành phần:</strong> Yến sào, hạt sen, táo đỏ, lá dứa.</p>
+      <p><strong>Công dụng:</strong> Bổ phổi, tăng đề kháng, an thần, mát gan.</p>
+    </div>
 </div>
 
-<div id="popup-confirm" class="popup-confirm">✅ Đơn hàng đã được gửi thành công!</div>
+<div class="cart-box">
+  <h2>🛒 Giỏ hàng</h2>
+  <div id="cart-items"></div>
+  <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
+</div>
 
+<div class="form-box">
+  <h3>📩 Thông tin đặt hàng</h3>
+  <label for="name">Họ và tên:</label>
+  <input type="text" id="name" placeholder="Nhập họ tên" />
+  <label for="phone">Số điện thoại:</label>
+  <input type="tel" id="phone" placeholder="Nhập SĐT" />
+  <label for="note">Ghi chú thêm:</label>
+  <input type="text" id="note" placeholder="Ví dụ: Giao sau 17h, ít ngọt..." />
+  <button class="btn" onclick="sendOrder()">📤 Gửi đơn hàng</button>
+</div>
+</div>
+<div id="popup-confirm" class="popup-confirm">✅ Đơn hàng đã được gửi thành công!</div>
 <script>
 let cart = [];
-
-function showPopup(i) {
-  document.getElementById("popup" + i).style.display = "block";
-}
-function hidePopup(i) {
-  document.getElementById("popup" + i).style.display = "none";
-}
-
+function showPopup(i) { document.getElementById("popup"+i).style.display="block"; }
+function hidePopup(i) { document.getElementById("popup"+i).style.display="none"; }
 function addToCart(i) {
-  const select = document.getElementById("size" + i);
+  const select = document.getElementById("size"+i);
   const label = select.options[select.selectedIndex].text;
   const price = parseInt(select.value);
-  cart.push({ name: "Yến chưng đặc biệt " + i, label, price });
+  cart.push({ name: "Yến chưng " + i, label, price });
   renderCart();
 }
-
 function renderCart() {
   const area = document.getElementById("cart-items");
   const totalText = document.getElementById("cart-total");
   area.innerHTML = "";
   let total = 0;
   cart.forEach((item, i) => {
-    area.innerHTML += `
-      <div class="cart-item">
-        ${i+1}. ${item.name} – ${item.label} (${item.price}.000đ)
-        <button onclick="removeFromCart(${i})" style="color:red; border:none; float:right;">×</button>
-      </div>`;
+    area.innerHTML += `<div class="cart-item">${i+1}. ${item.name} – ${item.label} (${item.price}.000đ)
+    <button onclick="removeFromCart(${i})" style="color:red; border:none; float:right;">×</button></div>`;
     total += item.price;
   });
   totalText.innerText = total + ".000đ";
 }
-
-function removeFromCart(i) {
-  cart.splice(i, 1);
-  renderCart();
-}
+function removeFromCart(i) { cart.splice(i, 1); renderCart(); }
 
 function sendOrder() {
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const note = document.getElementById("note").value.trim();
+  if (!name || !phone) { alert("Vui lòng nhập đầy đủ họ tên và số điện thoại!"); return; }
+  if (cart.length === 0) { alert("Bạn chưa chọn sản phẩm nào!"); return; }
 
-  if (!name || !phone) {
-    alert("Vui lòng nhập đầy đủ họ tên và số điện thoại!");
-    return;
-  }
-
-  let total = 0;
-  let detail = "";
+  let total = 0, detail = "";
   cart.forEach((item, i) => {
     detail += `${i+1}. ${item.name} – ${item.label}: ${item.price}.000đ\n`;
     total += item.price;
   });
 
-  if (cart.length === 0) {
-    alert("Bạn chưa chọn sản phẩm nào!");
-    return;
-  }
-
-  fetch("https://script.google.com/macros/s/AKfycbz0EDhGXshFDCeJNPn3mGXN5oyZfd1G3scMkg-7Y08/dev", {
+  fetch("https://script.google.com/macros/s/AKfycbxlMUe-Ngh2tr9FG8bZp1ecb_l6UW32QOovFVAFlzXU_-qC0jkKa8RBGBtI02Bok1j0/exec", {
     method: "POST",
     body: JSON.stringify({
       name: name,
@@ -380,14 +346,11 @@ function sendOrder() {
     if (res.ok) {
       document.getElementById("popup-confirm").style.display = "block";
       setTimeout(() => document.getElementById("popup-confirm").style.display = "none", 4000);
-      cart = [];
-      renderCart();
+      cart = []; renderCart();
     } else {
       alert("Lỗi gửi đơn, vui lòng thử lại.");
     }
   });
 }
 </script>
-
-</body>
-</html>
+</body></html>
