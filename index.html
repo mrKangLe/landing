@@ -300,14 +300,14 @@ let cart = [];
 function showPopup(i) { document.getElementById("popup"+i).style.display="block"; }
 function hidePopup(i) { document.getElementById("popup"+i).style.display="none"; }
 function addToCart(i) {
-  const select = document.getElementById("size"+i);
-  const label = select.options[select.selectedIndex].text;
-  const price = parseInt(select.value);
-  cart.push({ name:
-  showAddPopup();
-  updateCartCount();
-  renderCart(); "Yến chưng " + i, label, price });
-  renderCart();
+
+const select = document.getElementById("size" + i);
+const label = select.options[select.selectedIndex].text;
+const price = parseInt(select.value);
+cart.push({ name: "Yến chưng " + i, label, price });
+showAddPopup();
+updateCartCount();
+renderCart();
 }
 function renderCart() {
   const area = document.getElementById("cart-items");
