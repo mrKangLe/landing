@@ -308,7 +308,9 @@ function addToCart(i) {
   const select = document.getElementById("size"+i);
   const label = select.options[select.selectedIndex].text;
   const price = parseInt(select.value);
-  cart.push({ name: "Yến chưng " + i, label, price });
+  cart.push({ name: 
+  showAddPopup();
+  updateCartCount();"Yến chưng " + i, label, price });
   renderCart();
 }
 function renderCart() {
@@ -358,5 +360,41 @@ function sendOrder() {
     }
   });
 }
+
+function showAddPopup() {
+  const pop = document.getElementById("popup-add");
+  pop.style.display = "block";
+  setTimeout(() => { pop.style.display = "none"; }, 2000);
+}
+
+function updateCartCount() {
+  document.getElementById("cart-count").innerText = cart.length;
+}
+
+function scrollToCart() {
+  document.getElementById("cart-items").scrollIntoView({ behavior: "smooth" });
+}
+
 </script>
+
+<div id="popup-add" class="popup-confirm" style="background:#ffecc7;color:#8a6d3b;">
+  🛒 Sản phẩm đã được thêm vào giỏ hàng!
+</div>
+<div id="floating-cart-btn" onclick="scrollToCart()" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff8000;
+  color: white;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1001;
+">
+  🛒 Xem giỏ (<span id="cart-count">0</span>)
+</div>
+
 </body></html>
