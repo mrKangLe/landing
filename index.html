@@ -277,9 +277,9 @@
     </div>
 </div>
 
-<div class="cart-box">
+<div class="cart-popup" id="cart-popup" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#fff4d1; padding:16px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index:1002; border-radius: 12px 12px 0 0;">
   <h2>🛒 Giỏ hàng</h2>
-  <div id="cart-items"></div>
+  <button onclick="toggleCartPopup()" style="float:right; background:none; border:none; font-size:18px; color:red;">×</button><div id="cart-items"></div>
   <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
 </div>
 
@@ -303,7 +303,10 @@ function addToCart(i) {
   const select = document.getElementById("size"+i);
   const label = select.options[select.selectedIndex].text;
   const price = parseInt(select.value);
-  cart.push({ name: "Yến chưng " + i, label, price });
+  cart.push({ name:
+  showAddPopup();
+  updateCartCount();
+  renderCart(); "Yến chưng " + i, label, price });
   renderCart();
 }
 function renderCart() {
@@ -353,5 +356,36 @@ function sendOrder() {
     }
   });
 }
+
+function showAddPopup() {
+  const pop = document.getElementById("popup-add");
+  pop.style.display = "block";
+  setTimeout(() => { pop.style.display = "none"; }, 2000);
+}
+
+function toggleCartPopup(force) {
+  const popup = document.getElementById("cart-popup");
+  if (force === "show") popup.style.display = "block";
+  else if (force === "hide") popup.style.display = "none";
+  else popup.style.display = popup.style.display === "block" ? "none" : "block";
+}
+
+function updateCartCount() {
+  document.getElementById("cart-count").innerText = cart.length;
+}
+
 </script>
+
+<div id="popup-add" class="popup-confirm" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%);
+background:#ffecc7; color:#8a6d3b; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:bold; z-index:999;">
+🛒 Sản phẩm đã được thêm vào giỏ hàng!
+</div>
+
+<div id="floating-cart-btn" onclick="toggleCartPopup()" style="
+position: fixed; bottom: 20px; right: 20px; background: #ff8000; color: white; font-weight: bold;
+padding: 10px 14px; border-radius: 999px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+font-size: 14px; cursor: pointer; z-index: 1001;">
+🛒 Xem giỏ (<span id="cart-count">0</span>)
+</div>
+
 </body></html>
