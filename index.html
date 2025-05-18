@@ -279,7 +279,7 @@
 
 <div class="cart-popup" id="cart-popup" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#fff4d1; padding:16px; box-shadow: 0 -2px 10px rgba(0,0,0,0.2); z-index:1002; border-radius: 12px 12px 0 0;">
   <h2>🛒 Giỏ hàng</h2>
-  <button onclick="toggleCartPopup()" style="float:right; background:none; border:none; font-size:18px; color:red;">×</button><button onclick="toggleCartPopup('hide')" style="float:right; background:none; border:none; font-size:18px; color:red;">×</button><div id="cart-items"></div>
+  <button onclick="toggleCartPopup()" style="float:right; background:none; border:none; font-size:18px; color:red;">×</button><<button onclick="toggleCartPopup('hide')" style="float:right; background:#ffeded; border:none; padding:6px 10px; border-radius:8px; font-size:16px; color:#cc0000; font-weight:bold; margin-bottom:8px;">Đóng ❌</button><div id="cart-items"></div>
   <p><strong>Tổng:</strong> <span id="cart-total">0đ</span></p>
 </div>
 
@@ -316,7 +316,7 @@ function renderCart() {
   let total = 0;
   cart.forEach((item, i) => {
     area.innerHTML += `<div class="cart-item">${i+1}. ${item.name} – ${item.label} (${item.price}.000đ)
-    <button onclick="removeFromCart(${i})" style="color:red; border:none; float:right;">×</button></div>`;
+    <button onclick="removeFromCart(${i})" style="background:none; border:none; color:red; font-size:16px; margin-left:8px;">❌</button></div>`;
     total += item.price;
   });
   totalText.innerText = total + ".000đ";
