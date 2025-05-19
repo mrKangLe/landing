@@ -113,14 +113,109 @@
         font-size: 14px;
         cursor: pointer;
     }
-  </style>
+  
+/* Combo banner mobile fix + cải thiện nút */
+@media (max-width: 768px) {
+  .banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .banner-left {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .banner-left .discount-circle {
+    font-size: 30px;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+  }
+  .banner-left button {
+    background: #e53935;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  .banner-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    gap: 0;
+  }
+  .combo {
+    flex: 1;
+    text-align: center;
+  }
+  .combo img {
+    width: 100%;
+    max-width: 110px;
+  }
+  .combo-name {
+    font-size: 14px;
+    padding: 4px;
+    margin: 4px 0;
+  }
+}
+
+/* Combo khít hoàn toàn */
+@media (max-width: 768px) {
+  .banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .banner-left {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .banner-left .discount-circle {
+    font-size: 30px;
+    font-weight: bold;
+    width: 100px;
+    height: 100px;
+  }
+  .banner-left button {
+    background: #e53935;
+    padding: 14px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  .banner-right {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    justify-content: center;
+  }
+  .combo {
+    flex: 1 1 auto;
+    max-width: 33.3333%;
+    padding: 0;
+    margin: 0;
+  }
+  .combo img {
+    width: 100%;
+    display: block;
+  }
+  .combo-name {
+    font-size: 14px;
+    padding: 4px;
+    margin: 4px 0;
+  }
+}
+</style>
 </head>
 <body>
 
 <div class="banner">
   <div class="banner-left">
     <h2>ƯU ĐÃI COMBO</h2>
-    <div class="discount-circle">10%</div>
+    <div class="discount-circle"><strong>10%</strong></div>
     <button>Xem combo</button>
   </div>
   <div class="banner-right">
