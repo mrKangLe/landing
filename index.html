@@ -208,6 +208,47 @@
     margin: 4px 0;
   }
 }
+
+.popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 999;
+}
+.popup-content {
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px 16px 0 0;
+  animation: slideUp 0.4s ease forwards;
+}
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+.close-btn {
+  font-size: 24px;
+  cursor: pointer;
+}
+.combo-item {
+  margin-top: 20px;
+  text-align: center;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
 </style>
 </head>
 <body>
@@ -317,5 +358,44 @@
     </div>
     
 </div>
+
+<!-- POPUP COMBO -->
+<div id="combo-popup" class="popup-overlay" onclick="closeComboPopup(event)">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h3>ƯU ĐÃI COMBO</h3>
+      <span class="close-btn" onclick="closeComboPopup()">×</span>
+    </div>
+    <div class="combo-item">
+      <img src="combo1.jpg" alt="Combo 1" style="width:100%;border-radius:10px;margin-bottom:8px;">
+      <h4>Combo THANH MÁT</h4>
+      <p>230.000đ</p>
+      <button class="buy-btn">Mua combo ngay</button>
+    </div>
+    <div class="combo-item">
+      <img src="combo2.jpg" alt="Combo 2" style="width:100%;border-radius:10px;margin-bottom:8px;">
+      <h4>Combo PHỤC HỒI</h4>
+      <p>230.000đ</p>
+      <button class="buy-btn">Mua combo ngay</button>
+    </div>
+    <div class="combo-item">
+      <img src="combo3.jpg" alt="Combo 3" style="width:100%;border-radius:10px;margin-bottom:8px;">
+      <h4>Combo BỔ KHÍ</h4>
+      <p>230.000đ</p>
+      <button class="buy-btn">Mua combo ngay</button>
+    </div>
+  </div>
+</div>
+<script>
+function openComboPopup() {
+  document.getElementById('combo-popup').style.display = 'flex';
+}
+function closeComboPopup(event) {
+  if (event.target.id === 'combo-popup' || event.target.className === 'close-btn') {
+    document.getElementById('combo-popup').style.display = 'none';
+  }
+}
+</script>
+
 </body>
 </html>
