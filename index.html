@@ -268,5 +268,40 @@
     </div>
     
 </div>
+
+<!-- POPUP COMBO -->
+<div id="combo-popup" class="popup-overlay" onclick="closeComboPopup(event)">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h3>ƯU ĐÃI COMBO</h3>
+      <span class="close-btn" onclick="closeComboPopup()">×</span>
+    </div>
+    <div class="combo-item">
+      <img src="combo1.jpg" style="width:100%">
+      <h4>Combo THANH MÁT</h4>
+      <p>230.000đ</p>
+    </div>
+    <div class="combo-item">
+      <img src="combo2.jpg" style="width:100%">
+      <h4>Combo PHỤC HỒI</h4>
+      <p>230.000đ</p>
+    </div>
+    <div class="combo-item">
+      <img src="combo3.jpg" style="width:100%">
+      <h4>Combo BỔ KHÍ</h4>
+      <p>230.000đ</p>
+    </div>
+  </div>
+</div>
+<script>
+function openComboPopup() {
+  document.getElementById('combo-popup').style.display = 'flex';
+}
+function closeComboPopup(event) {
+  if (event.target.id === 'combo-popup' || event.target.className === 'close-btn') {
+    document.getElementById('combo-popup').style.display = 'none';
+  }
+}
+</script>
 </body>
 </html>
