@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yến Chưng Combo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yến Ocean VIP</title>
   <style>
     body {
       margin: 0;
@@ -70,9 +69,64 @@
       margin: 40px 0 20px;
       color: #5d2800;
     }
+
+    .vip-highlight {
+      max-width: 460px;
+      margin: 0 auto 30px;
+      background: linear-gradient(to bottom, #fffef7, #fff5cc);
+      border: 2px solid gold;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    }
+    .vip-highlight img {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .vip-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: gold;
+      color: #5a2d00;
+      padding: 6px 12px;
+      font-size: 12px;
+      border-radius: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .vip-highlight label,
+    .vip-highlight select,
+    .vip-highlight .price-display,
+    .vip-highlight button {
+      display: block;
+      margin: 10px auto;
+      font-size: 14px;
+    }
+    select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+      width: 90%;
+      max-width: 300px;
+    }
+    .price-display {
+      font-size: 16px;
+      font-weight: bold;
+      color: #b00000;
+    }
+    .vip-highlight .note {
+      font-size: 13px;
+      color: #333;
+      margin-top: 8px;
+    }
+
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 20px;
       padding: 0 20px 40px;
       max-width: 1000px;
@@ -119,24 +173,26 @@
       font-size: 14px;
       cursor: pointer;
     }
-  
-    .vip {
-      background: linear-gradient(to bottom, #fff5cc, #ffe08a);
-      border: 2px solid gold;
-      position: relative;
+
+    @media (max-width: 600px) {
+      .products {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 10px 40px;
+      }
+      .product-card {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      .product-card img {
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+      }
     }
-    .vip-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: gold;
-      color: #5a2d00;
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    </style>
+  </style>
 </head>
 <body>
 
@@ -151,9 +207,23 @@
     <button>Xem combo</button>
   </div>
 
-  <div class="title">YẾN CHƯNG 11 VỊ</div>
+  <div class="title">YẾN CHƯNG 10 VỊ</div>
+
+  <div class="vip-highlight">
+    <div class="vip-badge">VIP CAO CẤP</div>
+    <img src="dongtrung_vip.png" alt="Yến chưng Đông Trùng VIP">
+    <label for="dongtrung">Chọn dung tích:</label>
+    <select id="dongtrung" onchange="updatePrice()">
+      <option value="485000">100ml – 85.000đ → Tổng 485.000đ</option>
+      <option value="530000">150ml – 130.000đ → Tổng 530.000đ</option>
+    </select>
+    <div class="price-display" id="dongtrung-price">Tổng: 485.000đ</div>
+    <button class="buy-btn">Mua ngay</button>
+    <div class="note">* Giá đã bao gồm Đông Trùng nguyên con 400.000đ</div>
+  </div>
+
   <div class="products">
-    <div class="product-card vip"><div class="vip-badge">VIP</div>
+    <div class="product-card">
       <img src="product1.png" alt="Yến chưng 1">
       <p>Thành phần, công dụng mô tả</p>
       <h4>Yến chưng 1</h4>
@@ -223,13 +293,14 @@
       <div class="price">100ml – 85.000đ</div>
       <button class="buy-btn">Mua ngay</button>
     </div>
-    <div class="product-card">
-      <img src="product11.png" alt="Yến chưng 11">
-      <p>Thành phần, công dụng mô tả</p>
-      <h4>Yến chưng 11</h4>
-      <div class="price">100ml – 85.000đ</div>
-      <button class="buy-btn">Mua ngay</button>
-    </div>
   </div>
+
+<script>
+function updatePrice() {
+  const price = document.getElementById("dongtrung").value;
+  document.getElementById("dongtrung-price").innerText = "Tổng: " + parseInt(price).toLocaleString('vi-VN') + "đ";
+}
+</script>
+
 </body>
 </html>
