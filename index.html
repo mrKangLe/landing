@@ -1,307 +1,163 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yến Chưng 11 Vị</title>
+  <title>Yến Chưng Ocean</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fff8ec; }
-    .banner {
-        display: flex;
-        background: #fca326;
-        color: white;
-        padding: 20px;
-        align-items: center;
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fffaf0;
+      color: #3a2d14;
     }
-    .banner-left {
-        flex: 1;
-        text-align: center;
+    .combo-section {
+      display: flex;
+      flex-wrap: wrap;
+      background: linear-gradient(to right, #fff2cc, #ffe599);
+      padding: 1rem;
+      justify-content: space-between;
     }
-    .banner-left h2 { margin: 0; font-size: 28px; }
-    .discount-circle {
-        background: #ffe473;
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        margin: 10px auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #7a3e00;
-        font-size: 20px;
-        font-weight: bold;
+    .combo-banner {
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffb933;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
     }
-    .banner-left button {
-        background: #a63300;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 8px;
-        cursor: pointer;
+    .combo-banner .circle {
+      background: #ffe066;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem 0;
     }
-    .banner-right {
-        display: flex;
-        gap: 10px;
+    .combo-items {
+      flex: 3 1 600px;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    .combo {
-        text-align: center;
-        font-weight: bold;
+    .combo-item {
+      text-align: center;
     }
-    .combo img {
-        width: 100px;
-        border-radius: 10px;
+    .combo-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
     }
-    .combo-name {
-        background: #b95f00;
-        color: white;
-        padding: 5px;
-        margin-top: 5px;
-        border-radius: 5px;
+    .combo-label {
+      font-weight: bold;
+      margin-top: 0.5rem;
     }
-    .section-title {
-        text-align: center;
-        margin: 30px 0 10px;
-        font-size: 24px;
-        font-weight: bold;
-        color: #5d2800;
+    h2 {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-    .products {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 0 20px 40px;
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
     }
     .product-card {
-        width: 220px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-align: center;
-        padding: 15px;
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
     }
     .product-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
     }
-    .product-card h4 {
-        margin: 10px 0 5px;
-        color: #ff8200;
+    .product-name {
+      font-weight: bold;
+      margin-top: 0.5rem;
     }
-    .product-card p {
-        margin: 0;
-        font-size: 14px;
-        color: #333;
+    .product-info {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
     }
-    .price {
-        border: 1px solid #888;
-        padding: 5px 10px;
-        margin: 10px auto;
-        display: inline-block;
-        border-radius: 20px;
-        font-weight: bold;
+    .product-price {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
-    .buy-btn {
-        background: #ffaf00;
-        color: white;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 8px;
-        font-size: 14px;
-        cursor: pointer;
+    .btn-buy {
+      background: #ffc107;
+      color: black;
+      padding: 0.5rem 1rem;
+      border: 1px solid #3a2d14;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
-  
-/* Combo banner mobile fix + cải thiện nút */
-@media (max-width: 768px) {
-  .banner {
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  .banner-left {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  .banner-left .discount-circle {
-    font-size: 30px;
-    font-weight: bold;
-    width: 100px;
-    height: 100px;
-  }
-  .banner-left button {
-    background: #e53935;
-    padding: 14px 28px;
-    font-size: 16px;
-    border-radius: 10px;
-  }
-  .banner-right {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-    gap: 0;
-  }
-  .combo {
-    flex: 1;
-    text-align: center;
-  }
-  .combo img {
-    width: 100%;
-    max-width: 110px;
-  }
-  .combo-name {
-    font-size: 14px;
-    padding: 4px;
-    margin: 4px 0;
-  }
-}
-</style>
+    @media (max-width: 768px) {
+      .combo-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .combo-items {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<div class="banner">
-  <div class="banner-left">
-    <h2>ƯU ĐÃI COMBO</h2>
-    <div class="discount-circle"><strong>10%</strong></div>
-    <button onclick="openComboPopup()">Xem combo</button>
-  </div>
-  <div class="banner-right">
-    <div class="combo"><img src="combo1.jpg"><div class="combo-name">Combo THANH MÁT</div></div>
-    <div class="combo"><img src="combo2.jpg"><div class="combo-name">Combo PHỤC HỒI</div></div>
-    <div class="combo"><img src="combo3.jpg"><div class="combo-name">Combo BỔ KHÍ</div></div>
-  </div>
-</div>
-
-<div class="section-title">YẾN CHƯNG 11 VỊ</div>
-<div class="products">
-
+  <section class="combo-section">
+    <div class="combo-banner">
+      <div>ƯU ĐÃI COMBO</div>
+      <div class="circle">Tiết kiệm<br><strong>10%</strong></div>
+      <button class="btn-buy">Xem combo</button>
+    </div>
+    <div class="combo-items">
+      <div class="combo-item">
+        <img src="img/combo1.png" alt="Combo Thanh Mát">
+        <div class="combo-label">Combo THANH MÁT</div>
+      </div>
+      <div class="combo-item">
+        <img src="img/combo2.png" alt="Combo Phục Hồi">
+        <div class="combo-label">Combo PHỤC HỒI</div>
+      </div>
+      <div class="combo-item">
+        <img src="img/combo3.png" alt="Combo Bổ Khí">
+        <div class="combo-label">Combo BỔ KHÍ</div>
+      </div>
+    </div>
+  </section>
+  <h2>YẾN CHƯNG 11 VỊ</h2>
+  <section class="product-grid">
     <div class="product-card">
-        <img src="Sanpham1.jpg" alt="Yến chưng 1">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 1</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
+      <img src="img/yen1.png" alt="Yến saffron">
+      <div class="product-name">Yến chưng Safron</div>
+      <div class="product-info">Thanh mát, hỗ trợ ngủ ngon</div>
+      <div class="product-price">100ml - 89.000đ</div>
+      <button class="btn-buy">Mua ngay</button>
     </div>
-    
     <div class="product-card">
-        <img src="Sanpham2.jpg" alt="Yến chưng 2">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 2</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
+      <img src="img/yen2.png" alt="Yến hạt chia">
+      <div class="product-name">Yến chưng Chia</div>
+      <div class="product-info">Mát gan, đẹp da, giảm mụn hiệu quả</div>
+      <div class="product-price">100ml - 85.000đ</div>
+      <button class="btn-buy">Mua ngay</button>
     </div>
-    
-    <div class="product-card">
-        <img src="Sanpham3.jpg" alt="Yến chưng 3">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 3</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham4.jpg" alt="Yến chưng 4">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 4</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham5.jpg" alt="Yến chưng 5">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 5</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham6.jpg" alt="Yến chưng 6">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 6</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham7.jpg" alt="Yến chưng 7">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 7</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham8.jpg" alt="Yến chưng 8">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 8</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham9.jpg" alt="Yến chưng 9">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 9</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham10.jpg" alt="Yến chưng 10">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 10</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-    <div class="product-card">
-        <img src="Sanpham11.jpg" alt="Yến chưng 11">
-        <p>Công dụng mô tả ngắn</p>
-        <h4>Sản phẩm 11</h4>
-        <div class="price">100ml – 85.000đ</div>
-        <button class="buy-btn">Mua ngay</button>
-    </div>
-    
-</div>
-
-<!-- POPUP COMBO -->
-<div id="combo-popup" class="popup-overlay" onclick="closeComboPopup(event)">
-  <div class="popup-content">
-    <div class="popup-header">
-      <h3>ƯU ĐÃI COMBO</h3>
-      <span class="close-btn" onclick="closeComboPopup()">×</span>
-    </div>
-    <div class="combo-item">
-      <img src="combo1.jpg" style="width:100%">
-      <h4>Combo THANH MÁT</h4>
-      <p>230.000đ</p>
-    </div>
-    <div class="combo-item">
-      <img src="combo2.jpg" style="width:100%">
-      <h4>Combo PHỤC HỒI</h4>
-      <p>230.000đ</p>
-    </div>
-    <div class="combo-item">
-      <img src="combo3.jpg" style="width:100%">
-      <h4>Combo BỔ KHÍ</h4>
-      <p>230.000đ</p>
-    </div>
-  </div>
-</div>
-<script>
-function openComboPopup() {
-  document.getElementById('combo-popup').style.display = 'flex';
-}
-function closeComboPopup(event) {
-  if (event.target.id === 'combo-popup' || event.target.className === 'close-btn') {
-    document.getElementById('combo-popup').style.display = 'none';
-  }
-}
-</script>
+  </section>
 </body>
 </html>
