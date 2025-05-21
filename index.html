@@ -356,8 +356,7 @@
 <script defer="">
   var Tawk_API = Tawk_API || {};
 </script>
-
-<script defer>
+<script defer="">
 document.addEventListener('DOMContentLoaded', function () {
   const tooltip = document.querySelector('.chat-tooltip');
   setTimeout(() => tooltip.classList.add('hide'), 4000);
@@ -373,6 +372,117 @@ document.addEventListener('DOMContentLoaded', function () {
   transition: opacity 0.5s ease;
 }
 </style>
-</body>
+<!-- Nút xem giỏ hàng nổi -->
+<!-- Popup giỏ hàng -->
+<!-- Nút giỏ hàng nổi bên phải -->
+<div id="cart-toggle" style="writing-mode: vertical-rl; transform: rotate(180deg); position: fixed; bottom: 80px; left: 0; background: #ff6600; color: white; padding: 10px 8px; border-radius: 0 12px 12px 0; font-weight: bold; cursor: pointer; z-index: 9999; font-size: 13px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+  🛒 Giỏ hàng <span id="cart-count">0</span>
+</div>
+<!-- Popup trượt từ dưới lên -->
+<div id="cart-popup" style="position: fixed; bottom: -100%; left: 0; right: 0; margin: auto; width: 94%; max-width: 420px; background: #fff; box-shadow: 0 -6px 20px rgba(0,0,0,0.2); transition: bottom 0.35s ease; z-index: 10000; overflow-y: auto; padding: 16px 20px; border-radius: 16px; font-size: 14px; max-height: 90vh;">
+<h3 style="margin: 0 0 12px;">🧺 Giỏ hàng của bạn</h3>
+<div id="cart-items"></div>
+<div style="margin-top: 16px; font-weight: bold;">Tổng: <span id="cart-total">0đ</span></div>
+<div style="margin-top: 16px; display: flex; justify-content: space-between;">
+<button onclick="submitCart()" style="background: green; color: white; padding: 8px 14px; border: none; border-radius: 6px;">Gửi đơn</button>
+<button onclick="closeCart()" style="background: #aaa; color: white; padding: 8px 14px; border: none; border-radius: 6px;">Đóng ❌</button>
+</div>
+</div>
+<!-- Snackbar khi thêm sản phẩm -->
+<div id="snackbar" style="visibility:hidden; min-width:160px; background:#333; color:#fff; text-align:center; border-radius:8px; padding:10px; position:fixed; z-index:10001; left:50%; bottom:100px; transform:translateX(-50%); font-size:13px;">
+  ✅ Đã thêm vào giỏ!
+</div>
+<script>
+  const cart = [];
+  function formatPrice(p) {
+    return p.toLocaleString('vi-VN') + 'đ';
+  }
 
+  function openCart() {
+    document.getElementById('cart-popup').style.bottom = '0';
+  }
+
+  function closeCart() {
+    document.getElementById('cart-popup').style.bottom = '-100%';
+  }
+
+  function submitCart() {
+    if (cart.length === 0) {
+      alert('Giỏ hàng đang trống!');
+      return;
+    }
+    alert('Đơn hàng đã được ghi nhận! Chúng tôi sẽ liên hệ lại sớm nhất.');
+    cart.length = 0;
+    updateCartUI();
+    closeCart();
+  }
+
+  function updateCartUI() {
+    const itemsEl = document.getElementById('cart-items');
+    const totalEl = document.getElementById('cart-total');
+    const countEl = document.getElementById('cart-count');
+    itemsEl.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, idx) => {
+      total += item.price * item.qty;
+      const el = document.createElement('div');
+      el.innerHTML = `
+        <div style="border-bottom:1px solid #eee;padding:6px 0 10px;">
+          <strong>${item.name}</strong><br>
+          ${item.size} – ${formatPrice(item.price)}<br>
+          SL: <button onclick="changeQty(${idx},-1)">−</button> ${item.qty} <button onclick="changeQty(${idx},1)">+</button>
+          <button onclick="removeItem(${idx})" style="float:right;color:red;background:none;border:none;">❌</button>
+        </div>
+      `;
+      itemsEl.appendChild(el);
+    });
+    totalEl.textContent = formatPrice(total);
+    countEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
+  }
+
+  function changeQty(index, delta) {
+    cart[index].qty += delta;
+    if (cart[index].qty <= 0) cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function showSnackbar() {
+    const x = document.getElementById("snackbar");
+    x.style.visibility = "visible";
+    setTimeout(() => { x.style.visibility = "hidden"; }, 1800);
+  }
+
+  function addToCart(name, size, price) {
+    const existing = cart.find(i => i.name === name && i.size === size);
+    if (existing) {
+      existing.qty++;
+    } else {
+      cart.push({ name, size, price, qty: 1 });
+    }
+    updateCartUI();
+    showSnackbar();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.buy-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.product-card');
+        const name = card.querySelector('h4').textContent.trim();
+        const select = card.querySelector('select');
+        const selected = select.options[select.selectedIndex].text;
+        const [size, priceRaw] = selected.split('–');
+        const price = parseInt(priceRaw.replace(/[^\d]/g, ''));
+        addToCart(name, size.trim(), price);
+      });
+    });
+
+    document.getElementById('cart-toggle').addEventListener('click', openCart);
+  });
+</script>
+</body>
 </html>
