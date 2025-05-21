@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yến Ocean</title>
+<style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #fffaf2; }
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+    .combo-banner {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .combo-banner img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      max-height: 200px;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .top-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vip-block {
+  background: linear-gradient(135deg, #fffdf3, #fef4d6);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+
+      background: white;
+      border: 2px solid gold;
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .vip-block h4 {
+  font-family: 'Georgia', serif;
+  color: #5b3924;
+  font-size: 18px;
+  margin-top: 12px;
+}
+.vip-block img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+    }
+
+    .vip-block .badge {
+  background: linear-gradient(to right, gold, orange);
+  color: white;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 50px;
+  box-shadow: 0 0 8px gold;
+
+      background: gold;
+      color: black;
+      font-weight: bold;
+      padding: 4px 10px;
+      display: inline-block;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+
+    .vip-block select, .vip-block button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .vip-block button {
+      background: #ff6600;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+
+    .products {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 10px;
+      margin: auto;
+      display: block;
+    }
+
+    .product-card h4 {
+      color: #cc4400;
+      font-size: 16px;
+      margin: 10px 0 6px;
+    }
+
+    select, .buy-btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .buy-btn {
+      background: #ff6600;
+      color: white;
+      border: none;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    
+/* Fix VIP chiều cao đều chân + ẩn nút combo desktop */
+@media (min-width: 1024px) {
+  .vip-block {
+  background: linear-gradient(135deg, #fffdf3, #fef4d6);
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 500px;
+  }
+  .combo-banner button {
+    display: none;
+  }
+}
+/* Responsive */
+
+    @media (min-width: 1024px) {
+      .top-section {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        flex: 1;
+      }
+    }
+  
+@media (max-width: 767px) {
+  .product-card.vip-block {
+    margin: auto !important;
+    text-align: center !important;
+  }
+}
+
+.vip-img {
+  margin: 0 auto;
+  display: block;
+  max-width: 198px;
+}
+.vip-select {
+  padding: 8px 12px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+.vip-btn {
+  background: #f7941d;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin-top: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .product-card.vip-block {
+    margin: auto !important;
+    text-align: center !important;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="combo-banner">
+<img alt="Combo Banner" src="combo-banner.png"/>
+<button style="margin-top: 12px; background:#cc4400; color:white; padding:10px 20px; border:none; border-radius:10px;">Xem combo</button>
+</div>
+<div class="top-section">
+<div class="vip-block">
+<div class="badge">VIP</div>
+<img alt="Yến VIP" src="dongtrung_vip.png"/>
+<h4>Yến chưng Đông Trùng Hạ Thảo</h4>
+<p>Giá đã bao gồm Đông Trùng nguyên con 400.000đ + vị đi kèm</p>
+<select><option>100ml – 485.000đ</option><option>150ml – 530.000đ</option></select>
+<button>Mua ngay</button>
+</div>
+<div class="products">
+<div class="product-card">
+<img alt="Yến chưng Đông Trùng Hạ Thảo (VIP)" src="product1.png"/>
+<h4>Yến chưng Đông Trùng Hạ Thảo (VIP)</h4><p>Giá đã bao gồm Đông Trùng nguyên con 400.000đ + vị đi kèm</p>
+<select><option>100ml – 485.000đ</option><option>150ml – 530.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp" src="product2.png"/>
+<h4>Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp</h4><p>An thần, ngủ ngon, bổ huyết.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Hạt Sen, Long Nhãn, Lá Nếp" src="product3.png"/>
+<h4>Yến chưng Hạt Sen, Long Nhãn, Lá Nếp</h4><p>Dưỡng tâm, bổ tỳ, dễ ngủ.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp" src="product4.png"/>
+<h4>Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp</h4><p>Dưỡng gan sáng mắt, bổ huyết, an thần.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp" src="product5.png"/>
+<h4>Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp</h4><p>Bổ khí huyết, tăng cường trí nhớ.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp" src="product6.png"/>
+<h4>Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp</h4><p>Dưỡng huyết, bổ can thận, đẹp da.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Lá Nếp, Hạt Chia" src="product7.png"/>
+<h4>Yến chưng Lá Nếp, Hạt Chia</h4><p>Thanh mát, hỗ trợ tiêu hóa, giàu chất xơ.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Safron" src="product8.png"/>
+<h4>Yến chưng Safron</h4><p>Làm đẹp da, giảm stress, ngủ ngon.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+<div class="product-card">
+<img alt="Yến chưng Gừng" src="product9.png"/>
+<h4>Yến chưng Gừng</h4><p>Ấm bụng, hỗ trợ tiêu hóa, phòng cảm lạnh.</p>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<button class="buy-btn">Mua ngay</button>
+</div>
+</div></div>
+<style>
+  .footer-desktop, .footer-mobile { text-align: center; background: #fdfaf2; padding: 24px 12px; font-size: 13px; color: #444; }
+  .footer-desktop { display: none; }
+  .footer-mobile img { height: 30px; margin-bottom: 8px; }
+  .footer-mobile p, .footer-mobile a { margin: 6px 0; color: #444; text-decoration: none; }
+
+  @media (min-width: 768px) {
+    .footer-desktop { display: flex; justify-content: space-between; padding: 40px 32px; max-width: 1000px; margin: auto; font-size: 14px; }
+    .footer-mobile { display: none; }
+    .footer-desktop div { width: 33%; text-align: left; }
+    .footer-desktop div:last-child { text-align: right; }
+    .footer-desktop a { color: #444; text-decoration: none; }
+    .footer-desktop .logo img { height: 36px; margin-bottom: 12px; }
+  }
+</style>
+<footer>
+<div class="footer-mobile">
+<img alt="Yến Ocean" src="logo.png"/>
+<p>Cam kết chất lượng</p>
+<p>Tốt cho sức khỏe, tăng đề kháng</p>
+<a href="https://www.facebook.com/YenNhung.ocp.vn" target="_blank">Facebook: Yến Ocean</a>
+<p style="font-size: 12px; color: #aaa; margin-top: 12px;">© 2025 Yến Ocean. All rights reserved.</p>
+</div>
+<div class="footer-desktop">
+<div class="logo">
+<img alt="Yến Ocean" src="logo.png"/>
+</div>
+<div>
+<strong>Cam kết chất lượng</strong><br/>
+      Tốt cho sức khỏe, tăng đề kháng, làm đẹp, phục hồi.
+    </div>
+<div>
+<a href="https://www.facebook.com/YenNhung.ocp.vn" target="_blank">Facebook: Yến Ocean</a><br/>
+<span style="font-size: 12px; color: #aaa;">© 2025 Yến Ocean. All rights reserved.</span>
+</div>
+</div>
+</footer>
+</div>
+<!-- Chat buttons -->
+<style>
+.chat-buttons {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+.chat-buttons a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.chat-buttons img {
+  width: 28px;
+  height: 28px;
+}
+.chat-tooltip {
+  position: fixed;
+  right: 72px;
+  bottom: 16px;
+  background: #444;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 9998;
+}
+</style>
+<div class="chat-buttons">
+<a href="https://zalo.me/0942244994" target="_blank"><img alt="Zalo" src="zalo.png"/></a>
+<a href="https://m.me/yen.nhung.ocp.vn" target="_blank"><img alt="Messenger" src="messenger.png"/></a>
+<a href="#" onclick="Tawk_API.maximize(); return false;"><img alt="Live Chat" src="chat.png"/></a>
+</div>
+<div class="chat-tooltip">Anh chị cần hỗ trợ? Chat ngay với shop nha ^^</div>
+<!-- Tawk.to widget -->
+<script async="" defer="" src="https://embed.tawk.to/64df13a094cf5d49dc6b0c97/1h8l6kj2v"></script>
+<script defer="">
+  var Tawk_API = Tawk_API || {};
+</script>
+</body>
+</html>
