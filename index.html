@@ -346,7 +346,7 @@
 }
 </style>
 <div class="chat-buttons">
-<a href="https://zalo.me/0942244994" target="_blank"><img alt="Zalo" src="zalo.png"/></a>
+<a href="https://zalo.me/0942244994" target="_blank"><img alt="Zalo" src="zalo_web_icon.png"/></a>
 <a href="https://m.me/yen.nhung.ocp.vn" target="_blank"><img alt="Messenger" src="messenger.png"/></a>
 <a href="#" onclick="Tawk_API.maximize(); return false;"><img alt="Live Chat" src="chat.png"/></a>
 </div>
@@ -356,5 +356,23 @@
 <script defer="">
   var Tawk_API = Tawk_API || {};
 </script>
+
+<script defer>
+document.addEventListener('DOMContentLoaded', function () {
+  const tooltip = document.querySelector('.chat-tooltip');
+  setTimeout(() => tooltip.classList.add('hide'), 4000);
+  setTimeout(() => {
+    tooltip.classList.remove('hide');
+    setTimeout(() => tooltip.classList.add('hide'), 3000);
+  }, 30000);
+});
+</script>
+<style>
+.chat-tooltip.hide {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+</style>
 </body>
+
 </html>
