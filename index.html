@@ -650,8 +650,12 @@ function submitCart() {
     alert('Giỏ hàng đang trống!');
     return;
   }
-  alert('Đơn hàng đã được ghi nhận! Chúng tôi sẽ liên hệ lại sớm nhất.');
-  cart.length = 0;
+  
+if (confirm('✅ Đơn hàng đã được ghi nhận!\nBạn có muốn tham gia nhóm Zalo VIP để nhận quà tặng và chăm sóc đặc biệt không?')) {
+  window.location.href = 'https://zalo.me/g/bxkblo418';
+}
+cart.length = 0;
+
   updateCartUI();
   closeCart();
 }
@@ -806,12 +810,17 @@ function applyDiscount() {
 </script>
 <style>.chat-tooltip.hide { opacity: 0; transition: opacity 0.5s ease; }</style>
 <script>
-function openProductPopup() {
-  document.getElementById('product-detail-popup').style.display = 'block';
-}
-function addToCartFromPopup() {
-  alert("Đã thêm vào giỏ hàng (mô phỏng)!");
-  document.getElementById('product-detail-popup').style.display = 'none';
+function addToCartFromPopup(pid) {
+  const popup = document.getElementById(pid + '-popup');
+  const name = popup.querySelector('h2')?.textContent.trim() || pid;
+  const selects = popup.querySelectorAll('select');
+  const sizeSelect = selects[0];
+  const sweetSelect = selects[1];
+  const size = sizeSelect?.options[sizeSelect.selectedIndex].text.split('–')[0].trim();
+  const price = parseInt(sizeSelect?.options[sizeSelect.selectedIndex].text.replace(/[^\d]/g, '')) || 0;
+  const sweet = sweetSelect?.value || "Vừa";
+  addToCart(name + " – " + sweet, size, price);
+  popup.style.display = "none";
 }
 </script>
 <!-- Popup sản phẩm chi tiết -->
@@ -1248,36 +1257,18 @@ function openProductPopup(id) {
 }
 </script>
 <script>
-function updatePopupPrice(pid) {
-  const popup = document.getElementById(pid + '-popup');
-  const sizeSelect = popup.querySelector('select');
-  const priceBlock = popup.querySelector('.popup-price');
-  const selected = sizeSelect.options[sizeSelect.selectedIndex].text;
-  const price = selected.includes('100ml') ? 85000 : selected.includes('120ml') ? 110000 : 55000;
-  priceBlock.innerText = 'Giá: ' + price.toLocaleString('vi-VN') + 'đ';
-  return price;
-}
-
 function addToCartFromPopup(pid) {
   const popup = document.getElementById(pid + '-popup');
-  const name = popup.querySelector('h2').textContent.trim();
+  const name = popup.querySelector('h2')?.textContent.trim() || pid;
   const selects = popup.querySelectorAll('select');
   const sizeSelect = selects[0];
-  const size = sizeSelect.options[sizeSelect.selectedIndex].text.split('–')[0].trim();
-  const price = updatePopupPrice(pid);
-  const sweet = popup.querySelectorAll("select")[1]?.value || "Vừa";
+  const sweetSelect = selects[1];
+  const size = sizeSelect?.options[sizeSelect.selectedIndex].text.split('–')[0].trim();
+  const price = parseInt(sizeSelect?.options[sizeSelect.selectedIndex].text.replace(/[^\d]/g, '')) || 0;
+  const sweet = sweetSelect?.value || "Vừa";
   addToCart(name + " – " + sweet, size, price);
-  popup.style.display = 'none';
+  popup.style.display = "none";
 }
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.product-popup').forEach(popup => {
-    const sel = popup.querySelector('select');
-    if (sel) sel.addEventListener('change', () => {
-      const id = popup.id.replace('-popup', '');
-      updatePopupPrice(id);
-    });
-  });
-});
 </script>
 <script>
 function addVIPToCart() {
