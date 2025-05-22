@@ -212,7 +212,7 @@
     right: 0;
   }
 }
-</style></head>
+</style><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&amp;display=swap" rel="stylesheet"/></head>
 <body>
 <div class="container">
 <div class="combo-banner">
@@ -222,41 +222,34 @@
     </button>
 </div>
 <div class="top-section">
-<div class="vip-block">
+<div class="vip-block" id="product-vip">
 <div class="badge">
       VIP
      </div>
-<img alt="Yến VIP" src="dongtrung_vip.png"/>
+<img alt="Yến VIP" onclick="openProductVIPPopup()" src="dongtrung_vip.png" style=";cursor:pointer;"/>
 <h4>
       Yến chưng Đông Trùng Hạ Thảo
      </h4>
 <p>
       Giá đã bao gồm Đông Trùng nguyên con 400.000đ + vị đi kèm
      </p>
-<select>
-<option>
-       100ml – 485.000đ
-      </option>
-<option>
-       150ml – 530.000đ
-      </option>
-</select>
-<button>
+<select id="vip-size"><option>100ml – 485.000đ</option><option>150ml – 510.000đ</option></select>
+<button onclick="addVIPToCart()">
       Mua ngay
      </button>
 </div>
 <div class="products">
 <div class="product-card">
-<img alt="Yến chưng Lê Đường" src="product1.png"/>
+<img alt="Yến chưng Lê Đường" onclick="openProductPopup('product1')" src="product1.png" style="cursor:pointer;;cursor:pointer;"/>
 <h4>Yến chưng Lê Đường</h4>
 <p>Thanh nhiệt, dịu cổ họng, hỗ trợ ho khan.</p>
-<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select>
+<select><option>75ml – 55.000đ</option><option>100ml – 85.000đ</option><option>150ml – 110.000đ</option></select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp" src="product2.png"/>
+<img alt="Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp" onclick="openProductPopup('product2')" src="product2.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp
       </h4>
@@ -273,13 +266,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Hạt Sen, Long Nhãn, Lá Nếp" src="product3.png"/>
+<img alt="Yến chưng Hạt Sen, Long Nhãn, Lá Nếp" onclick="openProductPopup('product3')" src="product3.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Hạt Sen, Long Nhãn, Lá Nếp
       </h4>
@@ -296,13 +289,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp" src="product4.png"/>
+<img alt="Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp" onclick="openProductPopup('product4')" src="product4.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp
       </h4>
@@ -319,13 +312,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp" src="product5.png"/>
+<img alt="Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp" onclick="openProductPopup('product5')" src="product5.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp
       </h4>
@@ -342,13 +335,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp" src="product6.png"/>
+<img alt="Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp" onclick="openProductPopup('product6')" src="product6.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp
       </h4>
@@ -365,13 +358,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Lá Nếp, Hạt Chia" src="product7.png"/>
+<img alt="Yến chưng Lá Nếp, Hạt Chia" onclick="openProductPopup('product7')" src="product7.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Lá Nếp, Hạt Chia
       </h4>
@@ -388,13 +381,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Safron" src="product8.png"/>
+<img alt="Yến chưng Safron" onclick="openProductPopup('product8')" src="product8.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Safron
       </h4>
@@ -411,13 +404,13 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
 </div>
 <div class="product-card">
-<img alt="Yến chưng Gừng" src="product9.png"/>
+<img alt="Yến chưng Gừng" onclick="openProductPopup('product9')" src="product9.png" style=";cursor:pointer;"/>
 <h4>
        Yến chưng Gừng
       </h4>
@@ -434,7 +427,7 @@
 <option>
         150ml – 110.000đ
        </option>
-</select>
+</select><select style="width: 100%; margin-top: 6px; padding: 10px; border-radius: 8px;"><option>Vừa</option><option>Ít ngọt</option><option>Không đường</option></select>
 <button class="buy-btn">
        Mua ngay
       </button>
@@ -812,5 +805,574 @@ function applyDiscount() {
   });
 </script>
 <style>.chat-tooltip.hide { opacity: 0; transition: opacity 0.5s ease; }</style>
-</body>
+<script>
+function openProductPopup() {
+  document.getElementById('product-detail-popup').style.display = 'block';
+}
+function addToCartFromPopup() {
+  alert("Đã thêm vào giỏ hàng (mô phỏng)!");
+  document.getElementById('product-detail-popup').style.display = 'none';
+}
+</script>
+<!-- Popup sản phẩm chi tiết -->
+<div class="product-popup" id="product-detail-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+background: #fff; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); width: 90%; max-width: 600px; z-index: 1000; padding: 20px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Hũ yến" id="popup-product-image" src="product1.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 id="popup-product-title" style="font-size: 20px; font-weight: bold; margin-bottom: 8px;">Yến chưng Hạt Sen, Táo Đỏ</h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Hạt sen, Táo đỏ, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Giúp ngủ ngon, an thần</li>
+<li>Bổ máu, tăng cường tuần hoàn</li>
+<li>Hỗ trợ tiêu hóa nhẹ nhàng</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label for="size-select"><strong>Dung tích:</strong></label><br/>
+<select id="size-select" style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label for="sweetness-select"><strong>Độ ngọt:</strong></label><br/>
+<select id="sweetness-select" style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">
+      65.000đ
+    </div>
+<button onclick="addToCartFromPopup()" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<!-- Feedback -->
+<div style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;">
+      “Ngủ ngon thật sự sau 3 đêm dùng thử!”<br/>
+      – Mai Anh, Hà Nội
+    </div>
+<!-- Nút đóng -->
+<button onclick="document.getElementById('product-detail-popup').style.display='none'" style="margin-top: 12px; background: none; border: none; color: #999; font-size: 13px;">
+      Đóng
+    </button>
+</div>
+</div>
+<script>
+function openProductPopup(id) {
+  document.querySelectorAll('.product-popup').forEach(p => p.style.display = 'none');
+  document.getElementById(id + '-popup').style.display = 'block';
+}
+</script>
+<div class="product-popup" id="product1-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Lê Đường" src="product1.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Lê Đường</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Lê, Đường phèn
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Thanh nhiệt, làm dịu cổ họng</li><li>Giảm ho khan, kháng viêm nhẹ</li><li>Tốt cho người bị nóng trong</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product1')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product1-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product1-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product2-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp" src="product2.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Hạt Sen, Táo Đỏ, Lá Nếp</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Hạt sen, Táo đỏ, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>An thần, ngủ ngon</li><li>Bổ huyết, làm đẹp da</li><li>Thanh lọc cơ thể</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product2')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product2-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product2-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product3-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Hạt Sen, Long Nhãn, Lá Nếp" src="product3.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Hạt Sen, Long Nhãn, Lá Nếp</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Hạt sen, Long nhãn, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Dưỡng tâm, an thần</li><li>Tăng cường trí nhớ</li><li>Giúp ngủ sâu giấc</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product3')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product3-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product3-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product4-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp" src="product4.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Hạt Sen, Kỷ Tử, Lá Nếp</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Hạt sen, Kỷ tử, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Dưỡng gan sáng mắt</li><li>Chống oxy hóa, tốt cho da</li><li>Hỗ trợ tuần hoàn máu</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product4')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product4-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product4-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product5-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp" src="product5.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Long Nhãn, Táo Đỏ, Lá Nếp</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Long nhãn, Táo đỏ, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Bổ khí huyết</li><li>Tăng trí nhớ, giảm mệt mỏi</li><li>Tốt cho người suy nhược</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product5')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product5-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product5-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product6-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp" src="product6.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Táo Đỏ, Kỷ Tử, Lá Nếp</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Táo đỏ, Kỷ tử, Lá nếp
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Bổ gan, sáng mắt</li><li>Tăng sức đề kháng</li><li>Làm đẹp da</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product6')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product6-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product6-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product7-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Lá Nếp, Hạt Chia" src="product7.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Lá Nếp, Hạt Chia</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Lá nếp, Hạt chia
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Thanh mát, dễ tiêu hóa</li><li>Giàu chất xơ, hỗ trợ tim mạch</li><li>Tốt cho người ăn kiêng</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product7')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product7-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product7-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product8-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Safron" src="product8.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Safron</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Saffron, Đường phèn
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Giảm stress, ngủ ngon</li><li>Làm đẹp da, điều hòa nội tiết</li><li>Kháng viêm tự nhiên</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product8')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product8-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product8-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<div class="product-popup" id="product9-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: #fefaf3;border-radius: 28px;box-shadow: 0 12px 40px rgba(0,0,0,0.1);width: 92%; max-width: 620px; z-index: 1000; padding: 28px;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+<img alt="Yến chưng Gừng" src="product9.png" style="width: 180px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 20px; font-weight: bold; margin-bottom: 8px;"><div style="background: #ffe08a; padding: 8px 16px; border-radius: 14px; font-weight: bold; font-size: 20px; color: #5a3e1b; display: inline-block;">Yến chưng Gừng</div></h2>
+<div style="font-size: 14px; color: #555; margin-bottom: 8px;">
+<strong>Thành phần:</strong> Gừng, Đường phèn
+    </div>
+<div style="font-size: 14px; color: #555; margin-bottom: 12px;">
+<strong>Công dụng:</strong>
+<ul style="padding-left: 18px; margin-top: 4px;">
+<li>Giữ ấm cơ thể</li><li>Giảm cảm lạnh, ho</li><li>Tốt cho hệ tiêu hóa</li>
+</ul>
+</div>
+<div style="display: flex; gap: 12px; margin-bottom: 12px;">
+<div>
+<label><strong>Dung tích:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>70ml</option>
+<option>100ml</option>
+<option>120ml</option>
+</select>
+</div>
+<div>
+<label><strong>Độ ngọt:</strong></label><br/>
+<select style="padding: 6px; border-radius: 6px;">
+<option>Vừa</option>
+<option>Ít ngọt</option>
+<option>Không đường</option>
+</select>
+</div>
+</div>
+<div class="popup-price" style="font-size: 16px; font-weight: bold; color: #d94d00; margin-bottom: 12px;">Giá từ 55.000đ</div>
+<button onclick="addToCartFromPopup('product9')" style="padding: 12px 24px; border-radius: 8px; background: #f26522; color: white; border: none; font-weight: bold;">
+      MUA NGAY
+    </button>
+<div id="product9-feedback" style="margin-top: 16px; font-size: 13px; color: #666; font-style: italic; text-align: center;"></div>
+<button onclick="document.getElementById('product9-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<script>
+function openProductPopup(id) {
+  document.querySelectorAll('.product-popup').forEach(p => p.style.display = 'none');
+  document.getElementById(id + '-popup').style.display = 'block';
+
+  const feedbackMap = {
+"product1": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A1', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 1Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 1Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan1 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 1Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 1Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 1Lê'],
+"product2": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A2', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 2Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 2Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan2 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 2Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 2Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 2Lê'],
+"product3": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A3', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 3Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 3Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan3 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 3Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 3Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 3Lê'],
+"product4": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A4', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 4Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 4Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan4 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 4Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 4Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 4Lê'],
+"product5": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A5', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 5Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 5Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan5 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 5Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 5Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 5Lê'],
+"product6": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A6', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 6Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 6Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan6 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 6Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 6Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 6Lê'],
+"product7": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A7', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 7Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 7Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan7 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 7Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 7Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 7Lê'],
+"product8": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A8', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 8Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 8Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan8 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 8Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 8Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 8Lê'],
+"product9": ['“Hũ yến chất lượng, vị rất thanh nhẹ!” – Khách A9', '“Dùng xong ngủ sâu, khoẻ khoắn hơn!” – Mai 9Hương', '“Mẹ mình thích món này lắm, cảm ơn shop!” – Thành 9Phát', '“Rất phù hợp làm quà biếu sang trọng.” – Lan9 Anh', '“Giao nhanh, đóng gói kỹ, sẽ ủng hộ tiếp!” – Cẩm 9Linh', '“Yến nhiều, topping đầy đủ, ăn rất đã.” – Quân 9Trần', '“Vị không quá ngọt, vừa ăn, yến thơm.” – Linh 9Lê']
+  };
+  const fbList = feedbackMap[id];
+  if (fbList) {
+    const chosen = fbList[Math.floor(Math.random() * fbList.length)];
+    const el = document.getElementById(id + '-feedback');
+    if (el) el.innerText = chosen;
+  }
+}
+</script>
+<script>
+function updatePopupPrice(pid) {
+  const popup = document.getElementById(pid + '-popup');
+  const sizeSelect = popup.querySelector('select');
+  const priceBlock = popup.querySelector('.popup-price');
+  const selected = sizeSelect.options[sizeSelect.selectedIndex].text;
+  const price = selected.includes('100ml') ? 85000 : selected.includes('120ml') ? 110000 : 55000;
+  priceBlock.innerText = 'Giá: ' + price.toLocaleString('vi-VN') + 'đ';
+  return price;
+}
+
+function addToCartFromPopup(pid) {
+  const popup = document.getElementById(pid + '-popup');
+  const name = popup.querySelector('h2').textContent.trim();
+  const selects = popup.querySelectorAll('select');
+  const sizeSelect = selects[0];
+  const size = sizeSelect.options[sizeSelect.selectedIndex].text.split('–')[0].trim();
+  const price = updatePopupPrice(pid);
+  const sweet = popup.querySelectorAll("select")[1]?.value || "Vừa";
+  addToCart(name + " – " + sweet, size, price);
+  popup.style.display = 'none';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.product-popup').forEach(popup => {
+    const sel = popup.querySelector('select');
+    if (sel) sel.addEventListener('change', () => {
+      const id = popup.id.replace('-popup', '');
+      updatePopupPrice(id);
+    });
+  });
+});
+</script>
+<script>
+function addVIPToCart() {
+  const select = document.getElementById("vip-size");
+  const selected = select.options[select.selectedIndex].text;
+  const [size, priceRaw] = selected.split("–");
+  const price = parseInt(priceRaw.replace(/[^\d]/g, ''));
+  addToCart("Yến chưng Đông Trùng Hạ Thảo (VIP)", size.trim(), price);
+}
+</script>
+<div class="product-popup" id="product-vip-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);background: rgba(255, 252, 245, 0.95);backdrop-filter: blur(12px);border-radius: 24px;box-shadow: 0 16px 60px rgba(0,0,0,0.15);border: 2px solid #ffe08a;width: 92%; max-width: 620px; z-index: 1000; padding: 26px;">
+<div style="display: flex; flex-direction: column; align-items: center; font-family: Georgia, serif;; font-family: 'Playfair Display', serif;">
+<img alt="VIP Yến" src="dongtrung_vip.png" style="width: 200px; border-radius: 12px; margin-bottom: 16px;"/>
+<h2 style="font-size: 22px; font-weight: bold; color: #aa6600; text-align: center; margin-bottom: 6px;; background: linear-gradient(to right, #c08c00, #ff6600); -webkit-background-clip: text; color: transparent;">
+      Yến chưng Đông Trùng Hạ Thảo (VIP)
+    </h2>
+<div style="color: #5a3e1b; font-size: 14px; margin-bottom: 12px; text-align: center;">
+      Thành phần: Yến tinh chế 10g, Đông Trùng Hạ Thảo Tây Tạng, Long nhãn, Kỷ tử, Đường phèn
+    </div>
+<div style="color: #5a3e1b; font-size: 14px; margin-bottom: 16px; text-align: center;">
+      Công dụng:
+      <ul style="margin: 6px auto 0; padding-left: 18px; text-align: left;">
+<li>Bồi bổ phổi, tăng miễn dịch</li>
+<li>Phục hồi thể lực, chống suy nhược</li>
+<li>Hỗ trợ ngủ ngon, sáng mắt, đẹp da</li>
+</ul>
+</div>
+<select id="vip-popup-size" onchange="updateVIPPopupPrice()" style="padding: 10px; border-radius: 8px; margin-bottom: 14px;">
+<option>100ml – 485.000đ</option>
+<option>150ml – 530.000đ</option>
+</select>
+<div class="popup-price" id="vip-popup-price" style="font-size: 16px; font-weight: bold; color: #c15700; margin-bottom: 16px;">
+      Giá: 485.000đ
+    </div>
+<button onclick="addVIPToCartFromPopup()" style="padding: 12px 28px; background: #f26522; color: white; font-weight: bold; border: none; border-radius: 10px;">
+      MUA NGAY
+    </button>
+<div style="margin-top: 18px; font-size: 13px; color: #666; font-style: italic; text-align: center;">
+      “Tặng mẹ sau khi bệnh dậy, dùng 2 hôm khoẻ hẳn luôn!”<br/>
+      – Khách hàng Vũ Nam
+    </div>
+<button onclick="document.getElementById('product-vip-popup').style.display='none'" style="position:absolute; top:12px; right:12px; background:#eee; border:none; color:#444; font-size:18px; font-weight:bold; border-radius:50%; width:32px; height:32px; cursor:pointer;">×</button>
+</div>
+</div>
+<script>
+function openProductVIPPopup() {
+  document.getElementById('product-vip-popup').style.display = 'block';
+}
+function updateVIPPopupPrice() {
+  const sel = document.getElementById('vip-popup-size');
+  const val = sel.options[sel.selectedIndex].text;
+  const price = val.includes('150ml') ? 530000 : 485000;
+  document.getElementById('vip-popup-price').innerText = 'Giá: ' + price.toLocaleString('vi-VN') + 'đ';
+}
+function addVIPToCartFromPopup() {
+  const sel = document.getElementById('vip-popup-size');
+  const val = sel.options[sel.selectedIndex].text;
+  const [size, priceRaw] = val.split("–");
+  const price = parseInt(priceRaw.replace(/[^\d]/g, ''));
+  addToCart("Yến chưng Đông Trùng Hạ Thảo (VIP) - Đường phèn", size.trim(), price);
+  document.getElementById('product-vip-popup').style.display = 'none';
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Đóng popup khi bấm ra ngoài
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".product-popup").forEach(function (popup) {
+      if (popup.style.display === "block" && !popup.contains(e.target)) {
+        popup.style.display = "none";
+      }
+    });
+  });
+
+  // Đóng popup khi cuộn trên mobile
+  window.addEventListener("scroll", function () {
+    document.querySelectorAll(".product-popup").forEach(function (popup) {
+      popup.style.display = "none";
+    });
+  });
+
+  // Thêm vào giỏ có giữ vị
+  document.querySelectorAll('.buy-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.product-card, .vip-block');
+      const name = card.querySelector('h4').textContent.trim();
+      const selects = card.querySelectorAll('select');
+      const sizeSelect = selects[0];
+      const sweetSelect = selects[1];
+      const size = sizeSelect.options[sizeSelect.selectedIndex].text.split('–')[0].trim();
+      const price = parseInt(sizeSelect.options[sizeSelect.selectedIndex].text.replace(/[^\d]/g, ''));
+      const sweet = sweetSelect?.value || "Vừa";
+      addToCart(name + " – " + sweet, size, price);
+    });
+  });
+});
+</script></body>
 </html>
