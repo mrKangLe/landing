@@ -247,13 +247,9 @@
 </div>
 <div class="products">
 <div class="product-card">
-<img alt="Yến chưng Đông Trùng Hạ Thảo (VIP)" src="product1.png"/>
-<h4>
-       Yến chưng Đông Trùng Hạ Thảo (VIP)
-      </h4>
-<p>
-       Giá đã bao gồm Đông Trùng nguyên con 400.000đ + vị đi kèm
-      </p>
+<img alt="Yến chưng Lê Đường" src="product1.png"/>
+<h4>Yến chưng Lê Đường</h4>
+<p>Thanh nhiệt, dịu cổ họng, hỗ trợ ho khan.</p>
 <select>
 <option>
         100ml – 485.000đ
@@ -586,8 +582,7 @@
 <!-- Nút giỏ hàng nổi bên phải -->
 <!-- Popup trượt từ dưới lên -->
 <!-- Snackbar khi thêm sản phẩm -->
-  
-  <div id="cart-toggle" style="writing-mode: vertical-rl; transform: rotate(180deg); position: fixed; bottom: 160px; left: 0; background: #ff6600; color: white; padding: 10px 8px; border-radius: 0 12px 12px 0; font-weight: bold; cursor: pointer; z-index: 9999; font-size: 13px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2)">
+<div id="cart-toggle" style="writing-mode: vertical-rl; transform: rotate(180deg); position: fixed; bottom: 160px; left: 0; background: #ff6600; color: white; padding: 10px 8px; border-radius: 0 12px 12px 0; font-weight: bold; cursor: pointer; z-index: 9999; font-size: 13px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2)">
    🛒 Giỏ hàng
    <span id="cart-count">
     0
@@ -758,5 +753,71 @@ function applyDiscount() {
   }
   updateCartUI();
 }
-</script></body>
+</script>
+<div class="chat-buttons">
+<a href="https://zalo.me/0942244994" target="_blank" title="Zalo">
+<img alt="Zalo" src="zalo_web_icon.png"/>
+</a>
+<a href="https://m.me/yen.nhung.ocp.vn" target="_blank" title="Messenger">
+<img alt="Messenger" src="messenger.png"/>
+</a>
+<a href="#" onclick="Tawk_API.maximize(); return false;" title="Live Chat">
+<img alt="Live Chat" src="chat.png"/>
+</a>
+</div>
+<div class="chat-tooltip">
+  Anh chị cần hỗ trợ? Chat ngay với shop nha ^^
+</div>
+<style>
+.chat-buttons {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+.chat-buttons a {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.chat-buttons img {
+  width: 32px;
+  height: 32px;
+}
+.chat-tooltip {
+  position: fixed;
+  right: 76px;
+  bottom: 16px;
+  background: #444;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+  z-index: 9998;
+}
+</style>
+<script async="" defer="" src="https://embed.tawk.to/64df13a094cf5d49dc6b0c97/1h8l6kj2v"></script>
+<script defer="">
+  var Tawk_API = Tawk_API || {};
+  document.addEventListener('DOMContentLoaded', function () {
+    const tooltip = document.querySelector('.chat-tooltip');
+    setTimeout(() => tooltip.classList.add('hide'), 4000);
+    setTimeout(() => {
+      tooltip.classList.remove('hide');
+      setTimeout(() => tooltip.classList.add('hide'), 3000);
+    }, 30000);
+  });
+</script>
+<style>.chat-tooltip.hide { opacity: 0; transition: opacity 0.5s ease; }</style>
+</body>
 </html>
