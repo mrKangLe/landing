@@ -641,102 +641,6 @@
    ✅ Đã thêm vào giỏ!
   </div>
 <script>
-   const cart = [];
-
-function formatPrice(p) {
-  return p.toLocaleString('vi-VN') + 'đ';
-}
-function openCart() {
-  document.getElementById('cart-popup').style.bottom = '0';
-}
-function closeCart() {
-  document.getElementById('cart-popup').style.bottom = '-100%';
-}
-function submitCart() {
-  if (cart.length === 0) {
-    alert('Giỏ hàng đang trống!');
-    return;
-  }
-  alert('Đơn hàng đã được ghi nhận! Chúng tôi sẽ liên hệ lại sớm nhất.');
-  cart.length = 0;
-  updateCartUI();
-  closeCart();
-}
-function updateCartUI() {
-  const itemsEl = document.getElementById('cart-items');
-  const totalEl = document.getElementById('cart-total');
-  const countEl = document.getElementById('cart-count');
-  itemsEl.innerHTML = '';
-  let total = 0;
-  cart.forEach((item, idx) => {
-    total += item.price * item.qty;
-    const el = document.createElement('div');
-    el.className = 'cart-item';
-    el.style = "padding: 14px 0; border-bottom: 1px solid #eee;";
-    el.innerHTML = `
-      <strong style="font-size: 15px; color: #cc4400; display: block; margin-bottom: 6px;">${item.name}</strong>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 13px; color: #333; margin-bottom: 8px;">
-        <div>Dung tích: ${item.size}</div>
-        <div>Giá: ${formatPrice(item.price)}</div>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          SL:
-          <button onclick="changeQty(${idx},-1)" style="padding: 3px 8px;">−</button>
-          ${item.qty}
-          <button onclick="changeQty(${idx},1)" style="padding: 3px 8px;">+</button>
-        </div>
-        <button onclick="removeItem(${idx})" style="background:none;border:none;color:red;font-size:16px;cursor:pointer;">❌</button>
-      </div>
-    `;
-    itemsEl.appendChild(el);
-  });
-  totalEl.textContent = formatPrice(total);
-  countEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
-}
-function changeQty(index, delta) {
-  cart[index].qty += delta;
-  if (cart[index].qty <= 0) cart.splice(index, 1);
-  updateCartUI();
-}
-function removeItem(index) {
-  cart.splice(index, 1);
-  updateCartUI();
-}
-function showSnackbar() {
-  const x = document.getElementById("snackbar");
-  x.style.visibility = "visible";
-  setTimeout(() => { x.style.visibility = "hidden"; }, 1800);
-}
-function addToCart(name, size, price) {
-  const existing = cart.find(i => i.name === name && i.size === size);
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ name, size, price, qty: 1 });
-  }
-  updateCartUI();
-  showSnackbar();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.buy-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.product-card, .vip-block');
-      const name = card.querySelector('h4').textContent.trim();
-      const selects = card.querySelectorAll('select');
-      const selected = selects[0].options[selects[0].selectedIndex].text;
-      const [size, priceRaw] = selected.split('–');
-      const sweetness = selects[1]?.value || "Vừa";
-      const price = parseInt(priceRaw.replace(/[^\d]/g, ''));
-      addToCart(name + " – " + sweetness, size.trim(), price);
-    });
-  });
-  document.getElementById('cart-toggle').addEventListener('click', openCart);
-});
-
-  </script>
-<script>
 let discountPercent = 0;
 function applyDiscount() {
   const code = document.getElementById("discount-code").value.trim().toUpperCase();
@@ -1351,5 +1255,135 @@ function addVIPToCartFromPopup() {
   document.getElementById('product-vip-popup').style.display = 'none';
 }
 </script>
-</body>
+<script>
+let cart = [];
+
+function addToCart(name, size, price) {
+  const existing = cart.find(item => item.name === name && item.size === size);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, size, price, qty: 1 });
+  }
+  showSnackbar("✅ Đã thêm vào giỏ!");
+  updateCartUI();
+}
+
+function showSnackbar(text) {
+  const sb = document.getElementById("snackbar");
+  sb.innerText = text;
+  sb.style.visibility = "visible";
+  setTimeout(() => sb.style.visibility = "hidden", 2000);
+}
+
+function openCart() {
+  document.getElementById("cart-popup").style.bottom = "0";
+}
+function closeCart() {
+  document.getElementById("cart-popup").style.bottom = "-100%";
+}
+
+function updateCartUI() {
+  const itemsDiv = document.getElementById("cart-items");
+  const totalDiv = document.getElementById("cart-total");
+  const countSpan = document.getElementById("cart-count");
+  itemsDiv.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div style="margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+        <strong>${item.name}</strong><br/>
+        <span style="font-size:13px;">${item.size} – ${item.price.toLocaleString('vi-VN')}đ x ${item.qty}</span><br/>
+        <div style="margin-top:6px;">
+          <button onclick="decreaseQty(${index})" style="padding:2px 6px;">-</button>
+          <button onclick="increaseQty(${index})" style="padding:2px 6px;">+</button>
+          <button onclick="removeItem(${index})" style="padding:2px 6px; color:red;">❌</button>
+        </div>
+      </div>
+    `;
+    itemsDiv.appendChild(div);
+  });
+
+  if (discountPercent > 0) {
+    const discountAmount = Math.floor(total * discountPercent / 100);
+    total -= discountAmount;
+    document.getElementById("discount-info").innerText += ` – Tiết kiệm ${discountAmount.toLocaleString('vi-VN')}đ`;
+  }
+
+  totalDiv.innerText = total.toLocaleString('vi-VN') + 'đ';
+  countSpan.innerText = cart.reduce((sum, i) => sum + i.qty, 0);
+}
+
+function increaseQty(index) {
+  cart[index].qty += 1;
+  updateCartUI();
+}
+function decreaseQty(index) {
+  if (cart[index].qty > 1) cart[index].qty -= 1;
+  else cart.splice(index, 1);
+  updateCartUI();
+}
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+}
+</script><script>
+function submitCart() {
+  if (cart.length === 0) {
+    alert('Giỏ hàng đang trống!');
+    return;
+  }
+
+  const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const discountCode = document.getElementById("discount-code")?.value || "";
+  const discountPercent = discountCode === "YEN10" ? 10 : 0;
+  const discountValue = Math.floor(total * discountPercent / 100);
+  const finalTotal = total - discountValue;
+
+  const payload = {
+    cart: cart,
+    total: finalTotal,
+    discount: discountCode
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycby6zweg6apUcVuoACdW6WFXh9NoidtuFSktrVvXlTcBicu-ERn1hjHbbYigfa3Dfdfs/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  }).then(res => res.text()).then(resp => {
+    alert("Đơn hàng đã được ghi nhận! Chúng tôi sẽ liên hệ lại sớm nhất.");
+    cart.length = 0;
+    updateCartUI();
+    closeCart();
+  }).catch(err => {
+    alert("Gửi đơn thất bại! Vui lòng thử lại.");
+    console.error(err);
+  });
+}
+</script><script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.buy-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.product-card');
+      const name = card.querySelector('h4')?.textContent.trim() || "Sản phẩm không tên";
+      const selects = card.querySelectorAll('select');
+      const selected = selects[0].options[selects[0].selectedIndex].text;
+      const [size, priceRaw] = selected.split('–');
+      const price = parseInt(priceRaw.replace(/[^\d]/g, ''));
+      const sweetness = selects[1]?.value || "Vừa";
+      addToCart(name + " – " + sweetness, size.trim(), price);
+    });
+  });
+});
+</script><script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('cart-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', openCart);
+  }
+});
+</script></body>
 </html>
