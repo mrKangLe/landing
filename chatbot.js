@@ -25,9 +25,11 @@ document.getElementById('chatbot-button').onclick = async () => {
       body: JSON.stringify({ message: userMessage })
     });
 
-    const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || "❌ Không nhận được phản hồi.";
-    responseBox.innerText = "🤖 " + reply;
+    const text = await res.text();
+    const parsed = JSON.parse(text);
+
+    // In thẳng toàn bộ kết quả
+    responseBox.innerText = "🤖 " + (parsed.choices?.[0]?.message?.content || text);
 
   } catch (err) {
     responseBox.innerText = "❌ Lỗi khi gọi chatbot.";
