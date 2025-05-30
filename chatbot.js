@@ -1,7 +1,5 @@
-
 document.getElementById('chatbot-button').onclick = async () => {
   const userMessage = prompt("Bạn cần gì? (ví dụ: tìm cửa hàng giặt là)");
-
   if (!userMessage) return;
 
   const responseBox = document.createElement("div");
@@ -27,8 +25,6 @@ document.getElementById('chatbot-button').onclick = async () => {
 
     const text = await res.text();
     const parsed = JSON.parse(text);
-
-    // In thẳng toàn bộ kết quả
     responseBox.innerText = "🤖 " + (parsed.choices?.[0]?.message?.content || text);
 
   } catch (err) {
