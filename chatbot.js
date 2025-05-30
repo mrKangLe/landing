@@ -4,41 +4,32 @@ document.getElementById('chatbot-button').onclick = async () => {
 
   if (!userMessage) return;
 
-  const responseBox = document.createElement('div');
-  responseBox.style.position = 'fixed';
-  responseBox.style.bottom = '100px';
-  responseBox.style.right = '20px';
-  responseBox.style.background = '#fff';
-  responseBox.style.border = '1px solid #ccc';
-  responseBox.style.padding = '12px';
-  responseBox.style.borderRadius = '10px';
-  responseBox.style.maxWidth = '90%';
-  responseBox.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-  responseBox.innerText = '⏳ Đang trả lời...';
+  const responseBox = document.createElement("div");
+  responseBox.style.position = "fixed";
+  responseBox.style.bottom = "80px";
+  responseBox.style.right = "20px";
+  responseBox.style.background = "#fff";
+  responseBox.style.border = "1px solid #ccc";
+  responseBox.style.padding = "10px";
+  responseBox.style.borderRadius = "10px";
+  responseBox.style.boxShadow = "2px 2px 10px rgba(0,0,0,0.15)";
+  responseBox.innerText = "🤖 Đang tìm kết quả...";
   document.body.appendChild(responseBox);
 
   try {
-    const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbzXfM7BoU4GEOI2Nt5ij2A474yxGlMmMDjk26H8Up9aiW7dV7fr15CzZ5xQmztyaG6M/exec", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer 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"
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          { role: "system", content: "Bạn là trợ lý dành cho cư dân Ocean Park. Chỉ trả lời về dịch vụ, cửa hàng, tiện ích nội khu, không lan man." },
-          { role: "user", content: userMessage }
-        ],
-        temperature: 0.6
-      })
+      body: JSON.stringify({ message: userMessage })
     });
 
     const data = await res.json();
-    const reply = data.choices?.[0]?.message?.content || "Không nhận được phản hồi.";
-
+    const reply = data.choices?.[0]?.message?.content || "❌ Không nhận được phản hồi.";
     responseBox.innerText = "🤖 " + reply;
+
   } catch (err) {
-    responseBox.innerText = "❌ Lỗi kết nối chatbot!";
+    responseBox.innerText = "❌ Lỗi khi gọi chatbot.";
   }
 };
